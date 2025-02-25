@@ -1,12 +1,60 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
+import { ChangeDetectionStrategy, Component, computed, inject, Signal } from '@angular/core';
+import { PacienteService } from './services/paciente.service';
+import { IPaciente } from './models/Ipaciente';
+import { Paciente } from './models/paciente';
+// COMPONENTE DE PRUEBA
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'frontendequilibrio';
+  servicio = inject(PacienteService);
+
+  pacientes: Signal<IPaciente[] | undefined> = computed(() => this.servicio.getListaPacientes(),)
+
+
+  guardar() {
+    let  pac: Paciente = new Paciente();
+    pac.nombre = "Fernando";
+    pac.apellido = "soto"
+    pac.dni = 29274550
+    pac.fechaNacimiento = new Date("2014/05/15")
+    pac.telefono = "1158465"
+    pac.nacionalidad = "argetnina",
+      pac.domicilio = {
+        calle: "sanmartin",
+        numeracion: 1545,
+        localidad: "palpala",
+        barrio: "san martin"
+      },
+      pac.procedimientos = [{
+        numeroDiente: 15,
+        caraDiente: 2,
+        tipoProcedimiento: "extrraccion",
+        color: "rojo"
+      }],
+      pac.imagenes = [{
+        url: "d;//imagenes"
+      }]
+    
+    this.servicio.crearPaciente(pac);
+      // if (this.servicio.crearPaciente(pac)){
+    //   alert('se guardo')
+    // }
+    // this.servicio.crearPaciente(pac).subscribe(p=>{
+      // console.log(p.id)
+    // });
+  }
+
+  actualizar(){
+    let pacienteActualizado: Paciente | undefined  = this.servicio.getPacienteByID(1)
+    if (pacienteActualizado != undefined){
+
+      pacienteActualizado.domicilio.calle ='los anragnos'
+      this.servicio.actualizarPaciente(pacienteActualizado)
+    }
+  }
 }

@@ -5,7 +5,9 @@
   "projects": {
     "frontendequilibrio": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "changeDetection": "OnPush"
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
