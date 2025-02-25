@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { IPaciente } from '../models/Ipaciente';
 import { map, Observable } from 'rxjs';
 import { Paciente } from '../models/paciente';
 
@@ -8,7 +7,6 @@ import { Paciente } from '../models/paciente';
   providedIn: 'root'
 })
 export class PacienteService {
-  
   
   private url = 'http://localhost:8080/pacientes';
   private http = inject(HttpClient);
