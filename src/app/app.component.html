@@ -4,28 +4,44 @@
 @let pacientesLocal = pacientes();
 
 <h2>Pacientes</h2>
-@for (pac of pacientesLocal; track pac.id) {
-  <div>PACIENTE: {{pac.id}}</div>
-  <div>{{pac.apellido}}</div>
-  <div>{{pac.nombre}}</div>
-  <div>{{pac.nacionalidad}}</div>
-  <div>{{pac.fechaNacimiento}}</div>
-  <div>{{pac.dni}}</div> 
-  <h3>Domiclio</h3>
-  <div>{{pac.domicilio.calle}}</div> 
-  <div>{{pac.domicilio.localidad}}</div> 
-  <div>{{pac.domicilio.numeracion}}</div> 
-  <h3>Procedimientos</h3>
-  @for (item of pac.procedimientos; track $index) {
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Apellido</th>
+      <th>Nombre</th>
+      <th>nacionalidad</th>
+      <th>fechaNacimiento</th>
+      <th>DNI</th>
+      <th>Domicilio-calle</th>
+      <th>numero</th>
+      <th>localidad</th>
+      <th>caraDiente</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (pac of pacientesLocal; track pac.id) {
+      <tr>
+        <th>{{pac.id}}</th>
+        <th>{{pac.apellido}}</th>
+        <th>{{pac.nombre}}</th>
+        <th>{{pac.nacionalidad}}</th>
+        <th>{{pac.fechaNacimiento}}</th>
+        <th>{{pac.dni}}</th>
+        <th>{{pac.domicilio.calle}}</th>
+        <th>{{pac.domicilio.numeracion}}</th>
+        <th>{{pac.domicilio.localidad}}</th>
+        @for (item of pac.procedimientos; track $index) {
+          <th>{{item.caraDiente}}</th>
+          <th>{{item.numeroDiente}}</th> 
+          <th>{{item.tipoProcedimiento}}</th> 
+        }
+        @for (item of pac.imagenes; track $index) {
 
-    <div>{{item.caraDiente}}</div> 
-    <div>{{item.numeroDiente}}</div> 
-    <div>{{item.tipoProcedimiento}}</div> 
-  }
-  <h3>IMAGNES</h3>
-  @for (item of pac.imagenes; track $index) {
-
-    <div>{{item.url}}</div> 
-  }
-}
+          <th>{{item.url}}</th> 
+        }
+      </tr>
+    }    
+  </tbody>
+</table>
 
