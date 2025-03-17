@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, inject, Signal } from '@angular/core';
 import { PacienteService } from './services/paciente.service';
 import { Paciente } from './models/paciente';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { PrincipalComponent } from './components/principal/principal.component';
 // COMPONENTE DE PRUEBA
 @Component({
   selector: 'app-root',
-  imports: [SidebarComponent, PrincipalComponent],
+  imports: [RouterModule, RouterOutlet, SidebarComponent],
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './app.component.css'

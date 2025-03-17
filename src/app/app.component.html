@@ -1,7 +1,9 @@
 <div class="container-fluid">
   <div class="row">
-    <app-sidebar class="p-0 col-md-2 col-3 text-center text-white vh-100"></app-sidebar>
-    <app-principal class="col-md-10 col-9 text-center"/>
+    <app-sidebar class="col-md-2 col-3 text-center text-white vh-100 p-0" />
+    <div class="col-md-10 col-9">
+      <router-outlet />
+    </div>
   </div>
 </div>
 
@@ -51,4 +53,3 @@
     }    
   </tbody>
 </table> -->
-

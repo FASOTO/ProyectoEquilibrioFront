@@ -1,14 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
 :host {
-    font-family: 'Poppins', sans-serif;
     background: #0E3A81;
 }
-
 a {
     text-decoration: none;
 }
-
 .isologotipo, .isologotexto{
     width: 40%;
     min-width: 50px;

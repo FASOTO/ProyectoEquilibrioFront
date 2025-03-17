@@ -1,51 +1,51 @@
-<a>
-    <img class="isologotipo my-3" src="icon/2-small.png" alt="">
-</a>
-<div>
-    <img class="isologotexto mb-3" src="icon/letra1.png" alt="">
-</div>
-<div class="row m-0">
-    <div class="accordion p-0" id="menu">
-        <div class="accordion-item">
-            <h5 class="accordion-header">
-                <button class="accordion-button collapsed px-2" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#SubmenuPaciente" aria-expanded="true" aria-controls="SubmenuPaciente">
-                    <i class='bx bxs-group mx-2'></i>
-                    <span>Pacientes</span>
-                </button>
-            </h5>
-            <div id="SubmenuPaciente" class="accordion-collapse collapse" data-bs-parent="#menu">
-
-                <div class="accordion-body">
-                    <i class='bx bxs-user-plus me-2'></i>
-                    <a class="text-reset" href="AltaPaciente.html">Registrar Paciente</a>
-                </div>
-                <div class="accordion-body">
-                    <i class='bx bx-search-alt-2 me-2'></i>
-                    <a href="#" class="text-reset">Buscar Paciente</a>
-                </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h5 class="accordion-header">
-                <button class="accordion-button collapsed px-2" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#SubmenuFacturacion" aria-expanded="true" aria-controls="SubmenuFacturacion">
-                    <i class='bx bxs-group mx-2'></i>
-                    <span>Facturacion</span>
-                </button>
-            </h5>
-            <div id="SubmenuFacturacion" class="accordion-collapse collapse" data-bs-parent="#menu">
-
-                <div class="accordion-body">
-                    <i class='bx bxs-user-plus '></i>
-                    <a class="text-reset" href="#">Facturar</a>
-                </div>
-                <div class="accordion-body">
-                    <i class='bx bx-search-alt-2'></i>
-                    <a href="#" class="text-reset">Buscar Factura</a>
-                </div>
-            </div>
-        </div>
+    <a routerLink="/">
+        <img class="isologotipo my-3" src="icon/2-small.png" alt="">
+    </a>
+    <div>
+        <img class="isologotexto mb-3" src="icon/letra1.png" alt="">
     </div>
+    <div class="row m-0">
+        <div class="accordion p-0" id="menu">
+            <div class="accordion-item">
+                <h5 class="accordion-header">
+                    <button class="accordion-button collapsed px-2" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#SubmenuPaciente" aria-expanded="true" aria-controls="SubmenuPaciente">
+                        <i class='bx bxs-group mx-2'></i>
+                        <span class="fs-md-2">Pacientes</span>
+                    </button>
+                </h5>
+                <div id="SubmenuPaciente" class="accordion-collapse collapse" data-bs-parent="#menu">
 
-</div>
+                    <div class="accordion-body">
+                        <i class='bx bxs-user-plus me-2'></i>
+                        <a routerLink="/altaPaciente">Registrar Paciente</a>
+                    </div>
+                    <div class="accordion-body">
+                        <i class='bx bx-search-alt-2 me-2'></i>
+                        <a href="#" class="text-reset">Buscar Paciente</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h5 class="accordion-header">
+                    <button class="accordion-button collapsed px-2" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#SubmenuFacturacion" aria-expanded="true" aria-controls="SubmenuFacturacion">
+                        <i class='bx bxs-group mx-2'></i>
+                        <span>Facturacion</span>
+                    </button>
+                </h5>
+                <div id="SubmenuFacturacion" class="accordion-collapse collapse" data-bs-parent="#menu">
+
+                    <div class="accordion-body">
+                        <i class='bx bxs-user-plus '></i>
+                        <a class="text-reset" href="#">Facturar</a>
+                    </div>
+                    <div class="accordion-body">
+                        <i class='bx bx-search-alt-2'></i>
+                        <a href="#" class="text-reset">Buscar Factura</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

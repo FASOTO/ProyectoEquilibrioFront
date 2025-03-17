@@ -1,0 +1,62 @@
+<form [formGroup]="formDatosPersonales()" class="row m-2">
+    <div class="col-md-6 mb-3">
+        <label for="inputNombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="inputNombre" formControlName="nombre">
+    </div>
+    <div class="col-md-6 mb-3">
+        <label for="inputApellido" class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="inputApellido" formControlName="apellido">
+    </div>
+    <div class="col-md-4 mb-3">
+        <label for="inputDni" class="form-label">DNI</label>
+        <input type="text" placeholder="11222333" class="form-control" id="inputDni" formControlName="dni">
+    </div>
+    <div class="col-md-4 mb-3">
+        <label for="inputTelefono" class="form-label">Telefono</label>
+        <input type="tel" class="form-control" id="inputTelefono" formControlName="telefono">
+    </div>
+    <div class="col-md-4">
+        <label for="inputNacionalidad" class="form-label">Nacionalidad</label>
+        <select id="inputNacionalidad" class="form-select" formControlName="nacionalidad">
+            <option selected>Argentina</option>
+            <option>Bolivia</option>
+            <option>Paraguay</option>
+            <option>Chile</option>
+        </select>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label for="inputFechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" id="inputFechaNacimiento" formControlName="fechaNacimiento">
+    </div>
+    <hr>
+    <!-- <h4 class="mb-3">Domicilio</h4>
+    <div class="col-md-5 mb-3">
+        <label for="inputCalle" class="form-label">Calle</label>
+        <input type="text" placeholder="calle" class="form-control" id="inputCalle" formControlName="calle">
+    </div>
+    <div class="col-md-2 mb-3">
+        <label for="inputNumero" class="form-label">Numero</label>
+        <input type="text" placeholder="1122" class="form-control" id="inputNumero" formControlName="numeroCalle">
+    </div>
+    <div class="col-md-5 mb-3">
+        <label for="inputLocalidad" class="form-label">Localidad</label>
+        <select id="inputLocalidad" class="form-select" formControlName="localidad">
+            <option selected>San Salvador de Jujuy</option>
+            <option>Palpala</option>
+            <option>San Pedro</option>
+            <option>Perico</option>
+        </select>
+    </div>
+    <hr>
+    <h4 class="mb-3 col-md-6">Obra Social</h4>
+    <div class="col-md-5 mb-3">
+        <label for="inputObraSocial" class="form-label">Obra Social</label>
+        <select id="inputObraSocial" class="form-select" formControlName="obraSocial">
+            <option selected>Medife</option>
+            <option>Empleados de Comercio</option>
+            <option>Policia</option>
+            <option>Servicio Penitenciario</option>
+        </select>
+    </div> -->
+    
+</form>
