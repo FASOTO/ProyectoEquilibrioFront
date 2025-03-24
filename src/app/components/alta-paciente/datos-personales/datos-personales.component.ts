@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { FormGroup, ReactiveFormsModule} from '@angular/forms'
+import { FormGroup, ReactiveFormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-datos-personales',
@@ -11,18 +11,16 @@ export class DatosPersonalesComponent {
 
   formDatosPersonales = input.required<FormGroup>();
 
-  // formDatosPersonales = new FormGroup({
-  //   nombre: new FormControl(''),
-  //   apellido: new FormControl(''),
-  //   dni: new FormControl (''),
-  //   telefono: new FormControl(''),
-  //   nacionalidad: new FormControl(''),
-  //   fechaNacimiento: new FormControl(''),
-  //   calle: new FormControl(''),
-  //   numeroCalle: new FormControl(''),
-  //   localidad: new FormControl(''),
-  //   obraSocial: new FormControl('')
-  // })
-  
- 
+  calcularEdad() {
+    const hoy = new Date();
+    const fechaNacimiento:Date = new Date (this.formDatosPersonales().controls['fechaNacimiento'].value)
+    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+    const mes = hoy.getMonth() - fechaNacimiento.getMonth();
+    const dia = hoy.getDate() - fechaNacimiento.getDate();
+
+    if (mes < 0 || (mes === 0 && dia < 0)) {
+      edad--;
+    }
+    this.formDatosPersonales().controls['edad'].setValue(edad)
+  }
 }

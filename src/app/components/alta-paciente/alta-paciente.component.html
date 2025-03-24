@@ -1,20 +1,23 @@
 <h3 class="text-body-secondary display-6 p-3">Formulario Paciente</h3>
-
-<nav class="nav nav-tabs">
-    <button class="nav-link" type="button" [class.active]="activeTab === 'datosPersonales'" (click)="setActiveTab('datosPersonales')">Datos Personales</button>
-    <button class="nav-link" type="button" [class.active]="activeTab === 'declaracionJurada'" (click)="setActiveTab('declaracionJurada')">Declaracion Jurada</button>
-    <button class="nav-link" type="button" [class.active]="activeTab === 'odontograma'" (click)="setActiveTab('odontograma')">Odontograma</button>
-</nav>
-<div class="tab-content">
-     @if (activeTab === 'datosPersonales'){
-        <app-datos-personales [formDatosPersonales]="formAlta.controls.datosPersonales"/>
-     }
-     @if (activeTab === 'declaracionJurada'){
-        <app-declaracion-jurada/>
-     }
-     @if (activeTab === 'odontograma'){
-        <app-odontograma [(listaProcedimientos)]="lista"/>
-     }
+<div class="mx-3">
+   <nav class="nav nav-tabs">
+       <button class="nav-link" type="button" [class.active]="activeTab === 'datosPersonales'" (click)="setActiveTab('datosPersonales')">Datos Personales</button>
+       <button class="nav-link" type="button" [class.active]="activeTab === 'declaracionJurada'" (click)="setActiveTab('declaracionJurada')">Declaracion Jurada</button>
+       <button class="nav-link" type="button" [class.active]="activeTab === 'odontograma'" (click)="setActiveTab('odontograma')">Odontograma</button>
+       <button class="nav-link" type="button" [class.active]="activeTab === 'fotos'" (click)="setActiveTab('fotos')">Fotos</button>
+       <button class="nav-link" type="button" [class.active]="activeTab === 'salud'" (click)="setActiveTab('salud')">Salud del Paciente</button>
+   </nav>
+   <div class="tab-content">
+        @if (activeTab === 'datosPersonales'){
+           <app-datos-personales [formDatosPersonales]="formDatosPersonales"/>
+        }
+        @if (activeTab === 'declaracionJurada'){
+           <app-declaracion-jurada/>
+        }
+        @if (activeTab === 'odontograma'){
+           <app-odontograma [(listaProcedimientos)]="lista"/>
+        }
+   </div>
 </div>
 
-<button type="submit" class="btn-secondary" (click)="altaPaciente()">alta</button>
+<button type="submit" class="btn btn-primary" (click)="altaPaciente()">Alta Paciente</button>

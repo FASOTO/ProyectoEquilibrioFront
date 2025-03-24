@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-between">
+   <p class="text-body-secondary display-6 p-3">Paciente: {{this.paciente.apellido.toUpperCase()}}, {{this.paciente.nombre}}</p>
+   <p class="text-body-secondary display-6 p-3">O.Social: </p>
+</div>
+
+<nav class="nav nav-tabs">
+    <button class="nav-link" type="button" [class.active]="activeTab === 'datosPersonales'" (click)="setActiveTab('datosPersonales')">Datos Personales</button>
+    <button class="nav-link" type="button" [class.active]="activeTab === 'declaracionJurada'" (click)="setActiveTab('declaracionJurada')">Declaracion Jurada</button>
+    <button class="nav-link" type="button" [class.active]="activeTab === 'odontograma'" (click)="setActiveTab('odontograma')">Odontograma</button>
+</nav>
+<div class="tab-content">
+     @if (activeTab === 'datosPersonales'){
+        <app-detalle-datos [paciente]="this.paciente"/>
+     }
+     @if (activeTab === 'declaracionJurada'){
+        <!-- <app-declaracion-jurada/> -->
+     }
+     @if (activeTab === 'odontograma'){
+        <!-- <app-odontograma [(listaProcedimientos)]="lista"/> -->
+     }
+</div>

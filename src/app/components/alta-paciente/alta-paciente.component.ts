@@ -4,7 +4,7 @@ import { OdontogramaComponent } from "./odontograma/odontograma.component";
 import { DatosPersonalesComponent } from "./datos-personales/datos-personales.component";
 import { FormBuilder } from '@angular/forms';
 import { PacienteService } from '../../services/paciente.service';
-import { Paciente } from '../../models/paciente';
+import { IPaciente } from '../../models/ipaciente';
 
 @Component({
   selector: 'app-alta-paciente',
@@ -22,40 +22,52 @@ export class AltaPacienteComponent {
   fb = inject(FormBuilder)
   servicio = inject(PacienteService);
 
-  formAlta = this.fb.group({
-    datosPersonales: this.fb.group({
-      nombre: '',
-      apellido: '',
-      dni: 0,
-      telefono: 0,
-      nacionalidad: '',
-      fechaNacimiento: ''
-    })
+  formDatosPersonales = this.fb.group({
+    nombre: '',
+    apellido: '',
+    dni: 0,
+    telefono: '',
+    nacionalidad: '',
+    fechaNacimiento: new Date(),
+    edad: [{ value: 0, disabled: true }],
+    estadoCivil: '',
+    profesion: '',
+    calle: '',
+    numeroCalle: 0,
+    localidad: '',
+    obraSocial: '',
+    nroAfiliado: 0
   })
 
   altaPaciente() {
-    console.log(this.formAlta.controls.datosPersonales.value.apellido)
-    console.log(this.formAlta.controls.datosPersonales.value.nombre)
-    console.log(this.formAlta.controls.datosPersonales.value.dni)
-    console.log(this.formAlta.controls.datosPersonales.value.telefono)
-    console.log(this.formAlta.controls.datosPersonales.value.nacionalidad)
-    console.log(this.formAlta.controls.datosPersonales.value.fechaNacimiento)
+    let pac: IPaciente = {
+      nombre: this.formDatosPersonales.value.nombre as string,
+      apellido: this.formDatosPersonales.value.apellido as string,
+      dni: Number(this.formDatosPersonales.value.dni),
+      telefono: this.formDatosPersonales.value.telefono as string,
+      nacionalidad: this.formDatosPersonales.value.nacionalidad as string,
+      fechaNacimiento: this.formDatosPersonales.value.fechaNacimiento as Date,
+      estadoCivil: this.formDatosPersonales.value.estadoCivil as string,
+      profesion: this.formDatosPersonales.value.profesion as string,
+      obraSocial: this.formDatosPersonales.value.obraSocial as string,
+      nroAfiliado: Number(this.formDatosPersonales.value.nroAfiliado),
+      domicilio: {
+        calle: '',
+        numeracion: 0,
+        localidad: ''
+      },
+      procedimientos: [{
+        numeroDiente: 0,
+        caraDiente: 0,
+        tipoProcedimiento: '',
+        color: ''
+      }],
+      imagenes: [{
+        url: ''
+      }]
+    }
+    this.servicio.crearPaciente(pac)
 
-    let pac: Paciente = new Paciente();
-    pac.apellido = this.formAlta.controls.datosPersonales.value.apellido as string;
-    pac.nombre = this.formAlta.controls.datosPersonales.value.nombre as string;
-    pac.dni = Number(this.formAlta.controls.datosPersonales.value.dni);
-    // pac.telefono = this.formAlta.controls.datosPersonales.value.telefono as string;
-    pac.nacionalidad = this.formAlta.controls.datosPersonales.value.nacionalidad as string;
-    // pac.fechaNacimiento = Date(this.formAlta.controls.datosPersonales.value.fechaNacimiento);
-
-    // this.servicio.crearPaciente(pac);
-    // if (this.servicio.crearPaciente(pac)) {
-    //   alert('se guardo')
-    // }
-    // this.servicio.crearPaciente(pac).subscribe(p => {
-    //   console.log(p.id)
-    // });
   }
 
   // variable de prubea luego borrar

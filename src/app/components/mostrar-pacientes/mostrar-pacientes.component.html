@@ -1,0 +1,32 @@
+<h5 class="h3 my-2">Listado de Pacientes</h5>
+
+@let listado = servicePaciente.getListaPacientes();
+
+<table class="table table-striped table-hover">
+    <thead class="table-primary">
+        <tr>
+            <th>N°</th>
+            <th>Apellido</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Telefono</th>
+            <th>Nacionalidad</th>
+            <th>Dni</th>
+            <th>Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of listado; track item.id) {
+        <tr>
+            <th>{{item.id}}</th>
+            <th>{{item.apellido}}</th>
+            <th>{{item.nombre}}</th>
+            <th>{{item.edad}}</th>
+            <th>{{item.telefono}}</th>
+            <th>{{item.nacionalidad}}</th>
+            <th>{{item.dni}}</th>
+            <th><a class="btn btn-outline-dark btn-sm" [routerLink]="['/detallePaciente', item.id]">Ver</a></th>
+        </tr>
+        }
+    </tbody>
+</table>
