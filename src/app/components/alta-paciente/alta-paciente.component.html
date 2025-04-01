@@ -12,11 +12,14 @@
            <app-datos-personales [formDatosPersonales]="formDatosPersonales"/>
         }
         @if (activeTab === 'declaracionJurada'){
-           <app-declaracion-jurada/>
+           <app-declaracion-jurada [formDeclaracionJurada]="formDeclaracionJurada"/>
         }
         @if (activeTab === 'odontograma'){
            <app-odontograma [(listaProcedimientos)]="lista"/>
         }
+        @if (activeTab === 'salud'){
+         <app-salud-paciente [formSaludPaciente]="formSaludPaciente"/>
+      }
    </div>
 </div>
 

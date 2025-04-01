@@ -1,278 +1,294 @@
-<legend class="h3 my-2">Informacion Personal</legend>
-<div class="d-flex my-2 align-items-center">
-    <label class="me-2 col-2">Padre con vida?</label>
-    <label for="padreViveSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="padreVive" id="padreViveSi">
-    <label for="padreViveNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="padreVive" id="padreViveNo">
-    <label for="enfermedadPadre" class="me-3 col-2">Enfermedad : </label>
-    <input type="text" class="form-control" id="enfermedadPadre">
-</div>
-<div class="d-flex my-2 align-items-center">
-    <label class="me-2 col-2">Madre con vida?</label>
-    <label for="madreViveSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="madreVive" id="madreViveSi">
-    <label for="madreViveNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="madreVive" id="madreViveNo">
-    <label for="enfermedadMadre" class="me-3 col-2">Enfermedad : </label>
-    <input type="text" class="form-control" id="enfermedadMadre">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="me-2 col-2">Tiene hermanos?</label>
-    <label for="hermanosSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="hermanos" id="hermanosSi">
-    <label for="hermanosNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="hermanos" id="hermanosNo">
-    <label for="hermanosSanos" class="me-3 col-2">Sanos:</label>
-    <input type="text" class="form-control" id="hermanosSanos">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="me-2 col-2">Sufre alguna enfermedad?</label>
-    <label for="enfermedadSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="enfermedad" id="enfermedadSi">
-    <label for="enfermedadNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="enfermedad" id="enfermedadNo">
-    <label for="enfermedadQue" class="me-3 col-2">De que?</label>
-    <input type="text" class="form-control" id="enfermedadQue">
-</div>
-<div class="d-flex align-items-center mb-2">
-    <label class="me-2 col-2">Hace algun tratamiento medico?</label>
-    <label for="tratamientoMedicoSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="tratamientoMedico" id="tratamientoMedicoSi">
-    <label for="tratamientoMedicoNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="tratamientoMedico" id="tratamientoMedicoNo">
-    <label for="tratamientoMedicoCual" class="me-3 col-2">Cual?</label>
-    <input type="text" class="form-control" id="tratamientoMedicoCual">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="me-2 col-4">Que medicamentos consume habitualmente?</label>
-    <input type="text" class="form-control">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="me-2 col-4">Que medicamentos ha consumido en los ultimos 5 años?</label>
-    <input type="text" class="form-control">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="me-0 col-3">Realiza algun deporte?</label>
-    <label for="realizaDeporteSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="realizaDeporte" id="realizaDeporteSi">
-    <label for="realizaDeporteNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="realizaDeporte" id="realizaDeporteNo">
-    
-    <label class="ms-3 me-0 col-4">Nota algun malestar al realizarlo?</label>
-    <label for="malestarDeporteSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="malestarDeporte" id="malestarDeporteSi">
-    <label for="malestarDeporteNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="malestarDeporte" id="malestarDeporteNo">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="me-2 col-2">Es alergico a alguna droga?</label>
-    <label for="alergicoDrogaSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="alergicoDroga" id="alergicoDrogaSi">
-    <label for="alergicoDrogaNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="alergicoDroga" id="alergicoDrogaNo">
-    
-    <label for="checkAnestecia" class="col-1 me-3">Anestecia</label>
-    <input type="checkbox" class="form-check-input me-3" id="checkAnestecia">
+<form [formGroup]="formDeclaracionJurada()" class="row m-2">
 
-    <label for="checkPenicilina" class="col-1 me-3">Penicilina</label>
-    <input type="checkbox" class="form-check-input me-3" id="checkPenicilina">
+    <legend class="h3 my-3">Informacion Personal</legend>
+    <div class="d-flex my-2">
+        <p class="me-2 col-2">Padre con vida?</p>
+        <label for="padreViveSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="padreVive" id="padreViveSi" formControlName="padreVive" value="true">
+        <label for="padreViveNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="padreVive" id="padreViveNo" formControlName="padreVive" value="false">
+        <label for="enfermedadPadre" class="me-3 col-2">Enfermedad:</label>
+        <input type="text" class="form-control" id="enfermedadPadre" formControlName="enfermedadPadre">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-2 col-2">Madre con vida?</p>
+        <label for="madreViveSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="madreVive" id="madreViveSi" formControlName="madreVive" value="true">
+        <label for="madreViveNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="madreVive" id="madreViveNo" formControlName="madreVive" value="false">
+        <label for="enfermedadMadre" class="me-3 col-2">Enfermedad :</label>
+        <input type="text" class="form-control" id="enfermedadMadre" formControlName="enfermedadMadre">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-2 col-2">Tiene hermanos?</p>
+        <label for="hermanosSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="tieneHermanos" id="hermanosSi" formControlName="tieneHermanos" value="true">
+        <label for="hermanosNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="tieneHermanos" id="hermanosNo" formControlName="tieneHermanos" value="false">
+        <label for="hermanosSanos" class="me-3 col-2">Sanos:</label>
+        <input type="text" class="form-control" id="hermanosSanos" formControlName="hermanosSanos">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-2 col-3">Sufre alguna enfermedad?</p>
+        <label for="enfermedadSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="sufreEnfermedad" id="enfermedadSi" formControlName="sufreEnfermedad" value="true">
+        <label for="enfermedadNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="sufreEnfermedad" id="enfermedadNo" formControlName="sufreEnfermedad" value="false">
+        <label for="enfermedadQue" class="me-3 col-1">De que?</label>
+        <input type="text" class="form-control" id="enfermedadQue" formControlName="enfermedadCual">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-2 col-3">Hace algun tratamiento medico?</p>
+        <label for="tmSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="tratamientoMedico" id="tmSi" formControlName="tratamientoMedico" value="true">
+        <label for="tmNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="tratamientoMedico" id="tmNo" formControlName="tratamientoMedico" value="false">
+        <label for="tratamientoMedicoCual" class="me-3 col-1">Cual?</label>
+        <input type="text" class="form-control" id="tratamientoMedicoCual" formControlName="tratamientoMedicoCual">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-2 col-4">Que medicamentos consume habitualmente?</p>
+        <input id="mCH" type="text" class="form-control" formControlName="medicamentosConsumeHabitualmente">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-2 col-5">Que medicamentos ha consumido en los ultimos 5 años?</p>
+        <input id="mU5" type="text" class="form-control" formControlName="medicamentoUltimos5">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-0 col-3">Realiza algun deporte?</p>
+        <label for="realizaDeporteSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="realizaDeporte" id="realizaDeporteSi" formControlName="realizaDeporte" value="true">
+        <label for="realizaDeporteNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="realizaDeporte" id="realizaDeporteNo" formControlName="realizaDeporte" value="false">
 
-    <label for="otrosAlergia" class="col-1">Otros:</label>
-    <input type="text" class="form-control" id="otrosAlergia">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="me-2 col-4">Cuando le sacan una muela o se lastima, cicatriza bien?</label>
-    <label for="cicatrizaSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="cicatriza" id="cicatrizaSi">
-    <label for="cicatrizaNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="cicatriza" id="cicatrizaNo">
+        <p class="ms-3 me-0 col-4">Nota algun malestar al realizarlo?</p>
+        <label for="malestarDeporteSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="malestarDeporte" id="malestarDeporteSi" formControlName="malestarDeporte" value="true">
+        <label for="malestarDeporteNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="malestarDeporte" id="malestarDeporteNo" formControlName="malestarDeporte" value="false">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-2 col-3">Es alergico a alguna droga?</p>
+        <label for="alergicoDrogaSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="alergicoDroga" id="alergicoDrogaSi" formControlName="alergicoDroga" value="true">
+        <label for="alergicoDrogaNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="alergicoDroga" id="alergicoDrogaNo" formControlName="alergicoDroga" value="false">
 
-    <label for="sangraMucho" class="col-1 me-1">Sangra mucho?</label>
-    <input type="text" class="form-control" id="sangraMucho">
-</div>
+        <p for="checkAnestecia" class="col-1 me-3">Anestecia</p>
+        <input type="checkbox" class="form-check-input me-3" id="checkAnestecia" formControlName="alergicoAnestecia" value="anestecia">
 
-<div class="d-flex align-items-center mb-2">
-    <label class="me-1 col-4">Tiene problema de colágeno (hiperlaxitud)?</label>
-    <label for="colagenoSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="colageno" id="colagenoSi">
-    <label for="colagenoNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="colageno" id="colagenoNo">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="me-1 col-3">Antecedentes de fiebre reumática</label>
-    <label for="fiebreReumaticaSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="fiebreReumatica" id="fiebreReumaticaSi">
-    <label for="fiebreReumaticaNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="fiebreReumatica" id="fiebreReumaticaNo">
+        <p for="checkPenicilina" class="col-1 me-3">Penicilina</p>
+        <input type="checkbox" class="form-check-input me-3" id="checkPenicilina" formControlName="alergicoPenicilina" value="penicilina">
 
-    <label for="reumaticaMedicacion" class="col-3">Se protege con alguna medicacion?</label>
-    <input type="text" class="form-control" id="reumaticaMedicacion">
-</div>
+        <p for="otrosAlergia" class="col-1">Otros:</p>
+        <input type="text" class="form-control" id="otrosAlergia" formControlName="drogaCual">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-2 col-4">Cuando le sacan una muela o se lastima, cicatriza bien?</p>
+        <label for="cicatrizaSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="cicatriza" id="cicatrizaSi" formControlName="cicatriza" value="true">
+        <label for="cicatrizaNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="cicatriza" id="cicatrizaNo" formControlName="cicatriza" value="false">
 
-<div class="d-flex align-items-center my-3">
-    <label class="col-2">Es diabético?</label>
-    <label for="diabeticoSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="diabetico" id="diabeticoSi">
-    <label for="diabeticoNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="diabetico" id="diabeticoNo">
-    
-    <label for="diabeticoControlado" class="col-2">Esta controlado?</label>
-    <input type="text" class="form-control" id="diabeticoControlado">
-    <label for="diabeticoConque" class="mx-2 col-1">Con que?</label>
-    <input type="text" class="form-control" id="diabeticoConque">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="me-2 col-3">Tiene algun problema cardiaco?</label>
-    <label for="problemaCardiacoSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="problemaCardiaco" id="problemaCardiacoSi">
-    <label for="problemaCardiacoNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="problemaCardiaco" id="problemaCardiacoNo">
-    <label for="problemaCardiacoCual" class="col-1">Cual?</label>
-    <input type="text" class="form-control" id="problemaCardiacoCual">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="col-5">Toma seguido aspirina y anticoagulante?</label>
-    <label for="aspirinaAnticoagulanteSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="aspirinaAnticoagulante" id="aspirinaAnticoagulanteSi">
-    <label for="aspirinaAnticoagulanteNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="aspirinaAnticoagulante" id="aspirinaAnticoagulanteNo">
-    <label for="aspirinaAnticoagulanteFrecuencia" class="col-3">Con que frecuencia?</label>
-    <input type="text" class="form-control" id="aspirinaAnticoagulanteFrecuencia">
-</div>
+        <p for="sangraMucho" class="col-1 me-1">Sangra mucho?</p>
+        <input type="text" class="form-control" id="sangraMucho" formControlName="sangraMucho">
+    </div>
 
-<div class="d-flex align-items-center my-3">
-    <label class="col-2 me-1">Tiene presión alta?</label>
-    <label for="presionSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="presion" id="presionSi">
-    <label for="presionNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="presion" id="presionNo">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="col-2">Chagas?</label>
-    <label for="chagasSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="chagas" id="chagasSi">
-    <label for="chagasNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="chagas" id="chagasNo">
-    <label for="chagasTratamiento" class="col-3">Esta en tratamiento?</label>
-    <input type="text" class="form-control" id="chagasTratamiento">
-</div>
-<div class="d-flex align-items-center my-2">
-    <label class="me-1 col-3">Tiene problema renales?</label>
-    <label for="problemasRenalesSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="problemasRenales" id="problemasRenalesSi">
-    <label for="problemasRenalesNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="problemasRenales" id="problemasRenalesNo">
-    
-    <label class="mx-1 col-2">Ulcera gastrica?</label>
-    <label for="ulceraGastricaSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="ulceraGastrica" id="ulceraGastricaSi">
-    <label for="ulceraGastricaNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="ulceraGastrica" id="ulceraGastricaNo">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="me-2 col-2">Tuvo Hepatitis?</label>
-    <label for="hepatitisSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="hepatitis" id="hepatitisSi">
-    <label for="hepatitisNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="hepatitis" id="hepatitisNo">
-    
-    <label class="col-2">De que tipo?</label>
-    <label for="hepatitisTipoA" class="me-1">A</label>
-    <input type="checkbox" class="form-check-input me-3" id="hepatitisTipoA">
-    <label for="hepatitisTipoB" class="me-1">B</label>
-    <input type="checkbox" class="form-check-input me-3" id="hepatitisTipoB">
-    <label for="hepatitisTipoC" class="me-1">C</label>
-    <input type="checkbox" class="form-check-input me-3" id="hepatitisTipoC">
-</div>
-<div class="d-flex align-items-center mb-2">
-    <label class="me-2 col-4">Tiene algun problema hepático?</label>
-    <label for="problemaHepaticoSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="problemaHepatico" id="problemaHepaticoSi">
-    <label for="problemaHepaticoNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="problemaHepatico" id="problemaHepaticoNo">
-    <label for="problemaHepaticoCual" class="col-1">Cual?</label>
-    <input type="text" class="form-control" id="problemaHepaticoCual">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="col-3 me-1">Tuvo convulsiones?</label>
-    <label for="convulsionesSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="convulsiones" id="convulsionesSi">
-    <label for="convulsionesNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="convulsiones" id="convulsionesNo">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="me-2 col-2">Es epiléptico?</label>
-    <label for="epilepticoSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="epileptico" id="epilepticoSi">
-    <label for="epilepticoNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="epileptico" id="epilepticoNo">
-    <label for="epilepticoMedicacion" class="col-3">medicacion que toma:</label>
-    <input type="text" class="form-control" id="epilepticoMedicacion">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="col-3 me-1">Ha tenido sífilis o gonorrea?</label>
-    <label for="sifilisGonorreaSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="sifilisGonorrea" id="sifilisGonorreaSi">
-    <label for="sifilisGonorreaNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="sifilisGonorrea" id="sifilisGonorreaNo">
+    <div class="d-flex my-2">
+        <p class="me-1 col-4">Tiene problema de colágeno (hiperlaxitud)?</p>
+        <label for="colagenoSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="problemaColageno" id="colagenoSi" formControlName="problemaColageno" value="true">
+        <label for="colagenoNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="problemaColageno" id="colagenoNo" formControlName="problemaColageno" value="false">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-1 col-3">Antecedentes de fiebre reumática</p>
+        <label for="fiebreReumaticaSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="fiebreReumatica" id="fiebreReumaticaSi" formControlName="fiebreReumatica" value="true">
+        <label for="fiebreReumaticaNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="fiebreReumatica" id="fiebreReumaticaNo" formControlName="fiebreReumatica" value="false">
 
-    <label class="col-4 me-1">Otra enfermedad infectocontagiosa?</label>
-    <label for="infectocontagiosaSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="infectocontagiosa" id="infectocontagiosaSi">
-    <label for="infectocontagiosaNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="infectocontagiosa" id="infectocontagiosaNo">
-</div>
+        <p class="col-3">Se protege con alguna medicacion?</p>
+        <input type="text" class="form-control" id="fiebreReumaticaMedicacion" formControlName="fiebreReumaticaMedicacion">
+    </div>
 
-<div class="d-flex align-items-center my-3">
-    <label class="col-3 me-1">Tuvo transfusiones?</label>
-    <label for="transfusionesSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="transfusiones" id="transfusionesSi">
-    <label for="transfusionesNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="transfusiones" id="transfusionesNo">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="col-3">Fue operado alguna vez?</label>
-    <label for="operadoSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="operado" id="operadoSi">
-    <label for="operadoNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="operado" id="operadoNo">
-    <label for="operadoDeQue" class="col-1">De que?</label>
-    <input type="text" class="form-control" id="operadoDeQue">
-    <label for="operadoCuando" class="col-1 mx-2">Cuando?</label>
-    <input type="text" class="form-control" id="operadoCuando">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="col-4">Tiene algun problema respiratorio?</label>
-    <label for="problemaRespiratorioSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="problemaRespiratorio" id="problemaRespiratorioSi">
-    <label for="problemaRespiratorioNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="problemaRespiratorio" id="problemaRespiratorioNo">
-    <label for="problemaRespiratorioCual" class="col-1">cual?</label>
-    <input type="text" class="form-control" id="problemaRespiratorioCual">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="col-1 me-1">Fuma?</label>
-    <label for="fumaSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="fuma" id="fumaSi">
-    <label for="fumaNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="fuma" id="fumaNo">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="col-2">Esta embarazada?</label>
-    <label for="embarazadaSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="embarazada" id="embarazadaSi">
-    <label for="embarazadaNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="embarazada" id="embarazadaNo">
-    <label for="embarazadaCual" class="col-2">de cuantos meses?</label>
-    <input type="text" class="form-control" id="embarazadaCual">
-</div>
-<div class="d-flex align-items-center my-3">
-    <label class="col-5">Hay alguna otra enfermedad o recomendacion de su medico que quiera dejar constancia?</label>
-    <label for="recomendacionSi" class="me-1">si</label>
-    <input class="form-check-input me-3" type="radio" name="recomendacion" id="recomendacionSi">
-    <label for="recomendacionNo" class="me-1">No</label>
-    <input class="form-check-input me-3" type="radio" name="recomendacion" id="recomendacionNo">
-    <label for="recomendacionCual" class="col-1">cual?</label>
-    <input type="text" class="form-control" id="recomendacionCual">
-</div>
+    <div class="d-flex my-2">
+        <p class="col-2">Es diabético?</p>
+        <label for="diabeticoSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="diabetico" id="diabeticoSi" formControlName="diabetico" value="true">
+        <label for="diabeticoNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="diabetico" id="diabeticoNo" formControlName="diabetico" value="false">
+
+        <label for="controladoDiabetico" class="col-2">Esta controlado?</label>
+        <input type="text" class="form-control" id="controladoDiabetico" formControlName="controladoDiabetico">
+        <label for="conQueDiabetico" class="mx-2 col-1">Con que?</label>
+        <input type="text" class="form-control" id="conQueDiabetico" formControlName="conQueDiabetico">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-2 col-3">Tiene algun problema cardiaco?</p>
+        <label for="problemaCardiacoSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="problemaCardiaco" id="problemaCardiacoSi" formControlName="problemaCardiaco" value="true">
+        <label for="problemaCardiacoNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="problemaCardiaco" id="problemaCardiacoNo" formControlName="problemaCardiaco" value="false">
+        <label for="problemaCardiacoCual" class="col-1">Cual?</label>
+        <input type="text" class="form-control" id="problemaCardiacoCual" formControlName="problemaCardiacoCual">
+    </div>
+    <div class="d-flex my-2">
+        <p class="col-5">Toma seguido aspirina y anticoagulante?</p>
+        <label for="aspirinaAnticoagulanteSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="aspirinaAnticoagulante" id="aspirinaAnticoagulanteSi" formControlName="aspirinaAnticoagulante" value="true">
+        <label for="aspirinaAnticoagulanteNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="aspirinaAnticoagulante" id="aspirinaAnticoagulanteNo" formControlName="aspirinaAnticoagulante" value="false">
+        <label for="aspirinaAnticoagulanteFrecuencia" class="col-3">Con que frecuencia?</label>
+        <input type="text" class="form-control" id="aspirinaAnticoagulanteFrecuencia" formControlName="aspirinaAnticoagulanteFrecuencia">
+    </div>
+
+    <div class="d-flex my-2">
+        <p class="col-2 me-1">Tiene presión alta?</p>
+        <label for="presionSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="presion" id="presionSi" formControlName="presion" value="true">
+        <label for="presionNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="presion" id="presionNo" formControlName="presion" value="false">
+    </div>
+    <div class="d-flex my-2">
+        <p class="col-2">Chagas?</p>
+        <label for="chagasSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="chagas" id="chagasSi" formControlName="chagas" value="true">
+        <label for="chagasNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="chagas" id="chagasNo" formControlName="chagas" value="false">
+        <label for="chagasTratamiento" class="col-3">Esta en tratamiento?</label>
+        <input type="text" class="form-control" id="chagasTratamiento" formControlName="chagasTratamiento">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-1 col-3">Tiene problema renales?</p>
+        <label for="problemasRenalesSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="problemasRenales" id="problemasRenalesSi" formControlName="problemasRenales" value="true">
+        <label for="problemasRenalesNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="problemasRenales" id="problemasRenalesNo" formControlName="problemasRenales" value="false">
+
+        <p class="mx-1 col-2">Ulcera gastrica?</p>
+        <label for="ulceraGastricaSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="ulceraGastrica" id="ulceraGastricaSi" formControlName="ulceraGastrica" value="true">
+        <label for="ulceraGastricaNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="ulceraGastrica" id="ulceraGastricaNo" formControlName="ulceraGastrica" value="false">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-2 col-2">Tuvo Hepatitis?</p>
+        <label for="hepatitisSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="hepatitis" id="hepatitisSi" formControlName="hepatitis" value="true">
+        <label for="hepatitisNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="hepatitis" id="hepatitisNo" formControlName="hepatitis" value="false">
+
+        <p class="col-2">De que tipo?</p>
+        <label for="hepatitisTipoA" class="me-1">A</label>
+        <input type="checkbox" class="form-check-input me-3" name="hepatitisTipo" id="hepatitisTipoA" (change)="tipoHepatitis($event, 'A')">
+        <label for="hepatitisTipoB" class="me-1">B</label>
+        <input type="checkbox" class="form-check-input me-3" name="hepatitisTipo" id="hepatitisTipoB" (change)="tipoHepatitis($event, 'B')">
+        <label for="hepatitisTipoC" class="me-1">C</label>
+        <input type="checkbox" class="form-check-input me-3" name="hepatitisTipo" id="hepatitisTipoC" (change)="tipoHepatitis($event, 'C')">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-2 col-4">Tiene algun problema hepático?</p>
+        <label for="problemaHepaticoSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="problemaHepatico" id="problemaHepaticoSi" formControlName="problemaHepatico" value="true">
+        <label for="problemaHepaticoNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="problemaHepatico" id="problemaHepaticoNo" formControlName="problemaHepatico" value="false">
+        <label for="problemaHepaticoCual" class="col-1">Cual?</label>
+        <input type="text" class="form-control" id="problemaHepaticoCual" formControlName="problemaHepaticoCual">
+    </div>
+    <div class="d-flex my-2">
+        <p class="col-3 me-1">Tuvo convulsiones?</p>
+        <label for="convulsionesSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="convulsiones" id="convulsionesSi" formControlName="convulsiones" value="true">
+        <label for="convulsionesNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="convulsiones" id="convulsionesNo" formControlName="convulsiones" value="false">
+    </div>
+    <div class="d-flex my-2">
+        <p class="me-2 col-2">Es epiléptico?</p>
+        <label for="epilepticoSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="epileptico" id="epilepticoSi" formControlName="epileptico" value="true">
+        <label for="epilepticoNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="epileptico" id="epilepticoNo" formControlName="epileptico" value="false">
+        <label for="epilepticoMedicacion" class="col-3">medicacion que toma:</label>
+        <input type="text" class="form-control" id="epilepticoMedicacion" formControlName="epilepticoMedicacion">
+    </div>
+    <div class="d-flex my-2">
+        <p class="col-3 me-1">Ha tenido sífilis o gonorrea?</p>
+        <label for="sifilisGonorreaSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="sifilisGonorrea" id="sifilisGonorreaSi" formControlName="sifilisGonorrea" value="true">
+        <label for="sifilisGonorreaNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="sifilisGonorrea" id="sifilisGonorreaNo" formControlName="sifilisGonorrea" value="false">
+
+        <p class="col-4 me-1">Otra enfermedad infectocontagiosa?</p>
+        <label for="infectocontagiosaSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="otraEnfermedadInfectocontagiosa" id="infectocontagiosaSi" formControlName="otraEnfermedadInfectocontagiosa" value="true">
+        <label for="infectocontagiosaNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="otraEnfermedadInfectocontagiosa" id="infectocontagiosaNo" formControlName="otraEnfermedadInfectocontagiosa" value="false">
+    </div>
+
+    <div class="d-flex my-2">
+        <p class="col-3 me-1">Tuvo transfusiones?</p>
+        <label for="transfusionesSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="transfusiones" id="transfusionesSi" formControlName="transfusiones" value="true">
+        <label for="transfusionesNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="transfusiones" id="transfusionesNo" formControlName="transfusiones" value="false">
+    </div>
+    <div class="d-flex my-2">
+        <p class="col-3">Fue operado alguna vez?</p>
+        <label for="operadoSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="operado" id="operadoSi" formControlName="operado" value="true">
+        <label for="operadoNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="operado" id="operadoNo" formControlName="operado" value="false">
+        <label for="operadoDeQue" class="col-1">De que?</label>
+        <input type="text" class="form-control" id="operadoDeQue" formControlName="operadoDeQue">
+        <label for="operadoCuando" class="col-1 mx-2">Cuando?</label>
+        <input type="text" class="form-control" id="operadoCuando" formControlName="operadoCuando">
+    </div>
+    <div class="d-flex my-2">
+        <p class="col-4">Tiene algun problema respiratorio?</p>
+        <label for="problemaRespiratorioSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="problemaRespiratorio" id="problemaRespiratorioSi" formControlName="problemaRespiratorio" value="true">
+        <label for="problemaRespiratorioNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="problemaRespiratorio" id="problemaRespiratorioNo" formControlName="problemaRespiratorio" value="false">
+        <label for="problemaRespiratorioCual" class="col-1">cual?</label>
+        <input type="text" class="form-control" id="problemaRespiratorioCual" formControlName="problemaRespiratorioCual">
+    </div>
+    <div class="d-flex my-2">
+        <p class="col-1 me-1">Fuma?</p>
+        <label for="fumaSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="fuma" id="fumaSi" formControlName="fuma" value="true">
+        <label for="fumaNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="fuma" id="fumaNo" formControlName="fuma" value="false">
+    </div>
+    <div class="d-flex my-2">
+        <p class="col-2">Esta embarazada?</p>
+        <label for="embarazadaSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="embarazada" id="embarazadaSi" formControlName="embarazada" value="true">
+        <label for="embarazadaNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="embarazada" id="embarazadaNo" formControlName="embarazada" value="false">
+        <label for="embarazadaMeses" class="col-2">de cuantos meses?</label>
+        <input type="text" class="form-control" id="embarazadaMeses" formControlName="embarazadaMeses">
+    </div>
+    <div class="d-flex my-2">
+        <p class="col-5">Hay alguna otra enfermedad o recomendacion de su medico que quiera dejar
+            constancia?</p>
+        <label for="recomendacionSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="algunaOtraEnfermedad" id="recomendacionSi" formControlName="algunaOtraEnfermedad" value="true">
+        <label for="recomendacionNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="algunaOtraEnfermedad" id="recomendacionNo" formControlName="algunaOtraEnfermedad" value="false">
+        <label for="recomendacionCual" class="col-1">cual?</label>
+        <input type="text" class="form-control" id="recomendacionCual" formControlName="algunaOtraEnfermedadCual">
+    </div>
+    <div class="d-flex my-2">
+        <label for="tHA" class="col-5">Realiza algun tipo de tratamiento homeopatico, acupuntura, otros?</label>
+        <input id="tHA" type="text" class="form-control" formControlName="tratamientoHomeopaticoAcupuntura">
+    </div>
+    <div class="d-flex my-2">
+        <label for="medC" class="col-2">Medico clinico</label>
+        <input id="medC" type="text" class="form-control" formControlName="medicoClinico">
+    </div>
+    <div class="d-flex my-2">
+        <label for="cHosp" class="col-5">Clinica/hospital en caso de hacer falta derivacion?</label>
+        <input id="cHosp" type="text" class="form-control" formControlName="clinicaHospital">
+    </div>
+</form>

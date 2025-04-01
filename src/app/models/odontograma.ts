@@ -65,7 +65,7 @@ export abstract class Odontograma {
     }
 
     dibujarEstructura = (medida: number) => {
-        this.lienzoEstructura.width = this.lienzoSombreado.width = this.lienzoPinta.width = this.contenedor.clientWidth -20
+        this.lienzoEstructura.width = this.lienzoSombreado.width = this.lienzoPinta.width = this.contenedor.clientWidth - 20
         this.lienzoEstructura.height = this.lienzoSombreado.height = this.lienzoPinta.height = this.contenedor.clientHeight
 
         this.posEstandar.margenXEntreDientes = (medida * 8) / 1895
@@ -386,11 +386,11 @@ export abstract class Odontograma {
         return false;
     }
 
-    abstract establecerConjunto(numero:number):boolean;
+    abstract establecerConjunto(numero: number): boolean;
 
     private dibujarProcedimientosExistentes() {
-        this.listaProcedimientos.filter((element:Procedimiento) => {
-            if(this.establecerConjunto(element.numeroDiente)){
+        this.listaProcedimientos.filter((element: Procedimiento) => {
+            if (this.establecerConjunto(element.numeroDiente)) {
                 this.procSel.caraDiente = element.caraDiente
                 this.procSel.numeroDiente = element.numeroDiente
                 this.procSel.tipoProcedimiento = element.tipoProcedimiento
@@ -398,15 +398,15 @@ export abstract class Odontograma {
                 this.procSel.indice = this.numerosPrimeros.indexOf(element.numeroDiente)
                 if (this.procSel.indice < 0) this.procSel.indice = this.numerosSegundo.indexOf(element.numeroDiente);
                 this.establecerPosiciones();
-                this.dibujarProcedimiento(this.procSel.tipoProcedimiento)    
+                this.dibujarProcedimiento(this.procSel.tipoProcedimiento)
             }
         })
 
         this.limpiarDienteSeleccionado
     }
 
-    public setListaProcedimientos(lista : Procedimiento[]){
+    public setListaProcedimientos(lista: Procedimiento[]) {
         this.listaProcedimientos = lista;
-        this.dibujarProcedimientosExistentes();
+        if (this.listaProcedimientos.length > 0) this.dibujarProcedimientosExistentes();
     }
 }

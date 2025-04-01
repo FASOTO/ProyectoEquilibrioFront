@@ -1,0 +1,339 @@
+<form [formGroup]="formSaludPaciente()" class="row m-2">
+
+    <div class="d-flex my-3">
+        <h6 class="me-2 col-3">Porque asistio a la consulta?</h6>
+        <input type="text" class="form-control" formControlName="porqueAsistioConsulta">
+    </div>
+
+    <div class="d-flex my-3">
+        <h6 class="me-2 col-5">Consulto antes con algun otro profesional?</h6>
+        <label for="consultoConOtroProfesionalSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="consultoConOtroProfesional"
+            id="consultoConOtroProfesionalSi" formControlName="consultoConOtroProfesional" value="true">
+        <label for="consultoConOtroProfesionalNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="consultoConOtroProfesional"
+            id="consultoConOtroProfesionalNo" formControlName="consultoConOtroProfesional" value="false">
+    </div>
+    <hr>
+    <div class="d-flex mt-3">
+        <h6 class="me-2 col-3">Tomo algun medicamento?</h6>
+        <label for="tomoAlgunMedicamentoSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="tomoAlgunMedicamento" id="tomoAlgunMedicamentoSi"
+            formControlName="tomoAlgunMedicamento" value="true">
+        <label for="tomoAlgunMedicamentoNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="tomoAlgunMedicamento" id="tomoAlgunMedicamentoNo"
+            formControlName="tomoAlgunMedicamento" value="false">
+        <label for="nombreMedicamentos" class="me-3 col-3">Nombre Medicamentos:</label>
+        <input type="text" class="form-control" id="nombreMedicamentos" formControlName="nombreMedicamentos">
+    </div>
+    <div class="d-flex my-3">
+        <h6 class="me-2 col-2">Desde Cuando?</h6>
+        <div class="col-3 me-3">
+            <input type="text" class="form-control" id="desdeCuandoMedicamentos" formControlName="desdeCuando">
+        </div>
+        <h6 class="me-2 col-2">Obtuvo resultados?</h6>
+        <label for="obtuvoResultadosSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="obtuvoResultados" id="obtuvoResultadosSi"
+            formControlName="obtuvoResultados" value="true">
+        <label for="obtuvoResultadosNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="obtuvoResultados" id="obtuvoResultadosNo"
+            formControlName="obtuvoResultados" value="false">
+    </div>
+    <hr>
+    <div class="d-flex my-3">
+        <h6 class="me-2 col-2">Ha tenido dolor?</h6>
+        <label for="haTenidoDolorSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="haTenidoDolor" id="haTenidoDolorSi"
+            formControlName="haTenidoDolor" value="true">
+        <label for="haTenidoDolorNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="haTenidoDolor" id="haTenidoDolorNo"
+            formControlName="haTenidoDolor" value="false">
+    </div>
+    <div class="row d-flex my-3">
+        <h6 class="col-sm-3 col-lg-2 ">De que tipo?</h6>
+        <div class="col-sm-9 col-lg-10">
+            <div class="row">
+                <div class="col-3 col-xl-2 mb-1">
+                    <label for="queTipoSuave" class="me-1">Suave</label>
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoSuave"
+                        (change)="tipoDolor($event, 'Suave')">
+                </div>
+                <div class="col-4 col-xl-3 col-xxl-2 mb-1">
+                    <label for="queTipoModerado" class="me-1">Moderado</label>
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoModerado"
+                        (change)="tipoDolor($event, 'Moderado')">
+                </div>
+                <div class="col-3 col-xl-2 mb-1">
+                    <label for="queTipoIntenso" class="me-1">Intenso</label>
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoIntenso"
+                        (change)="tipoDolor($event, 'Intenso')">
+                </div>
+                <div class="col-4 col-xl-3 col-xxl-2 mb-2">
+                    <label for="queTipoTemporario" class="me-1">Temporario</label>
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoTemporario"
+                        (change)="tipoDolor($event, 'Temporario')">
+                </div>
+                <div class="col-4 col-xl-3 mb-1">
+                    <label for="queTipoIntermitente" class="me-1">Intermitente</label>
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoIntermitente"
+                        (change)="tipoDolor($event, 'Intermitente')">
+                </div>
+                <div class="col-4 col-lg-3 col-xxl-2 mb-2">
+                    <label for="queTipoContinuo" class="me-1">Continuo</label>
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoContinuo"
+                        (change)="tipoDolor($event, 'Continuo')">
+                </div>
+                <div class="col-4 col-xl-3 col-xxl-2 mb-1">
+                    <label for="queTipoEspontaneo" class="me-1">Espontáneo</label>
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoEspontaneo"
+                        (change)="tipoDolor($event, 'Espontáneo')">
+                </div>
+                <div class="col-4 col-lg-3 col-xxl-2 mb-1">
+                    <label for="queTipoProvocado" class="me-1">Provocado</label>
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoProvocado"
+                        (change)="tipoDolor($event, 'Provocado')">
+                </div>
+                <div class="col-3 col-xl-2 mb-1">
+                    <label for="queTipoAlFrio" class="me-1">Al frio</label>
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoAlFrio"
+                        (change)="tipoDolor($event, 'Al frio')">
+                </div>
+                <div class="col-3 col-xl-2 mb-2">
+                    <label for="queTipoAlCalor" class="me-1">Al calor</label>
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoAlCalor"
+                        (change)="tipoDolor($event, 'Al Calor')">
+                </div>
+                <div class="col-12 col-xl-6 d-flex mb-2">
+                    <label for="queTipoLocalizado" class="me-1">Localizado</label>
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoLocalizado"
+                        (change)="tipoDolor($event, 'Localizado')">
+                    <label for="localizadoDonde" class="me-1">Donde:</label>
+                    <input type="text" class="form-control" id="localizadoDonde" formControlName="localizadoDonde">
+                </div>
+                <div class="col-12 col-xl-6 d-flex mb-2">
+                    <label for="queTipoIrradiado" class="me-1">Irradiado</label>
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoIrradiado"
+                        (change)="tipoDolor($event, 'Irradiado')">
+                    <label for="irradiadoHaciaDonde" class="me-1">Hacia donde:</label>
+                    <input type="text" class="form-control" id="irradiadoHaciaDonde"
+                        formControlName="irradiadoHaciaDonde">
+                </div>
+                <div class="col-12 col-xl-6 d-flex mb-3">
+                    <label for="puedeCalmarlo" class="me-1">Puede calmarlo con algo:</label>
+                    <input type="text" class="form-control" id="puedeCalmarlo" formControlName="puedeCalmarlo">
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex my-2">
+        <h6 class="me-2 col-4">Sufrio algun golpe en los dientes?</h6>
+        <label for="sufrioGolpeDientesSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="sufrioGolpeDientes" id="sufrioGolpeDientesSi"
+            formControlName="sufrioGolpeDientes" value="true">
+        <label for="sufrioGolpeDientesNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="sufrioGolpeDientes" id="sufrioGolpeDientesNo"
+            formControlName="sufrioGolpeDientes" value="false">
+        <label for="cuando" class="me-3 col-1">Cuando?</label>
+        <input type="text" class="form-control" id="cuando" formControlName="cuando">
+    </div>
+    <div class="d-flex mb-3">
+        <label for="comoSeProdujo" class="col-2 me-2">Como se produjo?</label>
+        <input type="text" class="form-control" id="comoSeProdujo" formControlName="comoSeProdujo">
+    </div>
+    <hr>
+    <div class="d-flex my-2">
+        <h6 class="me-2 col-3">Se le fracturo algun diente?</h6>
+        <label for="fracturoDienteSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="fracturoDiente" id="fracturoDienteSi"
+            formControlName="fracturoDiente" value="true">
+        <label for="fracturoDienteNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="fracturoDiente" id="fracturoDienteNo"
+            formControlName="fracturoDiente" value="false">
+        <label for="fracturaDienteCual" class="me-1 col-1">Cual?</label>
+        <input type="text" class="form-control" id="fracturaDienteCual" formControlName="fracturaDienteCual">
+    </div>
+    <div class="d-flex mb-3">
+        <label for="recibioTratamiento" class="col-4">Recibio algun tratamiento?</label>
+        <input type="text" class="form-control" id="recibioTratamiento" formControlName="recibioTratamiento">
+    </div>
+    <hr>
+    <div class="d-flex mb-3">
+        <label for="dificultadHablar" class="col-4">Tiene dificultad para hablar?</label>
+        <input type="text" class="form-control" id="dificultadHablar" formControlName="dificultadHablar">
+    </div>
+    <div class="d-flex mb-3">
+        <label for="masticar" class="col-4">Para masticar?</label>
+        <input type="text" class="form-control" id="masticar" formControlName="masticar">
+    </div>
+    <div class="d-flex mb-3">
+        <label for="abrirBoca" class="col-4">Para abrir la boca?</label>
+        <input type="text" class="form-control" id="abrirBoca" formControlName="abrirBoca">
+    </div>
+    <div class="d-flex mb-3">
+        <label for="tragarAlimentos" class="col-4">Para tragar los alimentos?</label>
+        <input type="text" class="form-control" id="tragarAlimentos" formControlName="tragarAlimentos">
+    </div>
+    <hr>
+    <div class="d-flex mb-3">
+        <label for="observadoAnormalLabios" class="col-4">Ha observado algo anormal en los labios?</label>
+        <input type="text" class="form-control" id="observadoAnormalLabios" formControlName="observadoAnormalLabios">
+    </div>
+    <div class="d-flex mb-3">
+        <label for="observadoAnormalLengua" class="col-3 col-md-2 col-lg-1">lengua?</label>
+        <div class="col-2 me-2">
+            <input type="text" class="form-control" id="observadoAnormalLengua"
+                formControlName="observadoAnormalLengua">
+        </div>
+        <label for="observadoAnormalPaladar" class="col-3 col-lg-2 col-xl-1">paladar?</label>
+        <div class="col-2 me-2">
+            <input type="text" class="form-control" id="observadoAnormalPaladar"
+                formControlName="observadoAnormalPaladar">
+        </div>
+        <label for="observadoAnormalPisoBoca" class="col-2">piso de boca?</label>
+        <div class="col-2">
+            <input type="text" class="form-control" id="observadoAnormalPisoBoca"
+                formControlName="observadoAnormalPisoBoca">
+        </div>
+    </div>
+    <div class="d-flex mb-3">
+        <label for="observadoAnormalCarrillos" class="col-1">carrillos?</label>
+        <div class="col-2 me-2">
+            <input type="text" class="form-control" id="observadoAnormalCarrillos"
+                formControlName="observadoAnormalCarrillos">
+        </div>
+        <label for="observadoAnormalRebordes" class="col-1 me-3">rebordes?</label>
+        <div class="col-2 me-2">
+            <input type="text" class="form-control" id="observadoAnormalRebordes"
+                formControlName="observadoAnormalRebordes">
+        </div>
+        <label for="observadoAnormalTrigonos" class="col-1 me-3">trigonos?</label>
+        <div class="col-2 me-2">
+            <input type="text" class="form-control" id="observadoAnormalTrigonos"
+                formControlName="observadoAnormalTrigonos">
+        </div>
+    </div>
+    <label for="observadoAnormalRetromolar" class="col-2">retromolar?</label>
+    <div class="col-2 me-2 mb-3">
+        <input type="text" class="form-control" id="observadoAnormalRetromolar"
+            formControlName="observadoAnormalRetromolar">
+    </div>
+    <hr>
+    <h6 class="">Que tipo de lesiones presenta?</h6>
+    <div class="d-flex my-2">
+        <h6 class="col-3">Manchas?</h6>
+        <label for="lesionManchasSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="lesionManchas" id="lesionManchasSi"
+            formControlName="lesionManchas" value="true">
+        <label for="lesionManchasNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="lesionManchas" id="lesionManchasNo"
+            formControlName="lesionManchas" value="false">
+    </div>
+    <div class="d-flex my-2">
+        <h6 class="col-3">Abultamiento de los tejidos?</h6>
+        <label for="lesionAbultamientoTejidosSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="lesionAbultamientoTejidos"
+            id="lesionAbultamientoTejidosSi" formControlName="lesionAbultamientoTejidos" value="true">
+        <label for="lesionAbultamientoTejidosNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="lesionAbultamientoTejidos"
+            id="lesionAbultamientoTejidosNo" formControlName="lesionAbultamientoTejidos" value="false">
+    </div>
+    <div class="d-flex my-2">
+        <h6 class="col-3">Ulceraciones?</h6>
+        <label for="lesionUlceracionesSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="lesionUlceraciones" id="lesionUlceracionesSi"
+            formControlName="lesionUlceraciones" value="true">
+        <label for="lesionUlceracionesNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="lesionUlceraciones" id="lesionUlceracionesNo"
+            formControlName="lesionUlceraciones" value="false">
+    </div>
+    <div class="d-flex my-2">
+        <h6 class="col-3">Ampollas?</h6>
+        <label for="lesionAmpollarSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="lesionAmpollar" id="lesionAmpollarSi"
+            formControlName="lesionAmpollar" value="true">
+        <label for="lesionAmpollarNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="lesionAmpollar" id="lesionAmpollarNo"
+            formControlName="lesionAmpollar" value="false">
+    </div>
+    <div class="d-flex mb-3">
+        <label for="lesionOtros" class="col-3">Otros?</label>
+        <input type="text" class="form-control" id="lesionOtros" formControlName="lesionOtros">
+    </div>
+    <hr>
+    <div class="d-flex my-2">
+        <h6 class="me-2 col-4">le sangran las encias?</h6>
+        <label for="sangranEnciasSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="sangranEncias" id="sangranEnciasSi"
+            formControlName="sangranEncias" value="true">
+        <label for="sangranEnciasNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="sangranEncias" id="sangranEnciasNo"
+            formControlName="sangranEncias" value="false">
+        <label for="sangranEnciasCuando" class="me-1 col-1">Cuando?</label>
+        <input type="text" class="form-control" id="sangranEnciasCuando" formControlName="sangranEnciasCuando">
+    </div>
+    <div class="d-flex my-2">
+        <h6 class="me-2 col-4">Sale pus de algun lugar de su boca?</h6>
+        <label for="pusBocaSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="pusBoca" id="pusBocaSi" formControlName="pusBoca"
+            value="true">
+        <label for="pusBocaNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="pusBoca" id="pusBocaNo" formControlName="pusBoca"
+            value="false">
+        <label for="pusBocaDonde" class="me-1 col-1">De donde?</label>
+        <input type="text" class="form-control" id="pusBocaDonde" formControlName="pusBocaDonde">
+    </div>
+    <div class="d-flex my-2">
+        <h6 class="me-2 col-4">Tiene movilidad en sus dientes?</h6>
+        <label for="movilidadDientesSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="movilidadDientes" id="movilidadDientesSi"
+            formControlName="movilidadDientes" value="true">
+        <label for="movilidadDientesNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="movilidadDientes" id="movilidadDientesNo"
+            formControlName="movilidadDientes" value="false">
+    </div>
+    <div class="d-flex my-2">
+        <label for="morderSienteAltoDientes" class="me-1 col-4">Al morder siento alto los dientes?</label>
+        <input type="text" class="form-control" id="morderSienteAltoDientes" formControlName="morderSienteAltoDientes">
+    </div>
+    <hr>
+    <div class="d-flex my-2">
+        <h6 class="me-2 col-3">Ha tenido la cara hinchada?</h6>
+        <label for="caraHinchadaSi" class="me-1">si</label>
+        <input class="form-check-input me-3" type="radio" name="caraHinchada" id="caraHinchadaSi"
+            formControlName="caraHinchada" value="true">
+        <label for="caraHinchadaNo" class="me-1">No</label>
+        <input class="form-check-input me-3" type="radio" name="caraHinchada" id="caraHinchadaNo"
+            formControlName="caraHinchada" value="false">
+    </div>
+    <div class="d-flex my-2">
+        <label for="caraHinchadaHielo" class="col-2">se puso hielo?</label>
+        <input type="text" class="form-control me-2" id="caraHinchadaHielo" formControlName="caraHinchadaHielo">
+        <label for="caraHinchadaCalor" class="col-1">calor?</label>
+        <input type="text" class="form-control me-2" id="caraHinchadaCalor" formControlName="caraHinchadaCalor">
+        <label for="caraHinchadaOtros" class="col-1">otros</label>
+        <input type="text" class="form-control" id="caraHinchadaOtros" formControlName="caraHinchadaOtros">
+    </div>
+    <hr>
+    <div class="d-flex my-2">
+        <label for="azucarDiarios" class="col-4 col-xxl-3">Momentos de azucar diarios</label>
+        <input type="text" class="form-control me-2" id="azucarDiarios" formControlName="azucarDiarios">
+        <label for="indicePlaca" class="col-3 col-xxl-2">Indice de placa</label>
+        <input type="text" class="form-control me-2" id="indicePlaca" formControlName="indicePlaca">
+    </div>
+    <hr>
+    <div class="row d-flex my-3">
+        <h6 class="col-5 col-lg-3 ">Estado de la higiene bucal?</h6>
+        <div class="col-7 col-lg-9">
+            <label for="higieneBucalMuyBueno" class="col-5 col-md-4 col-lg-3 col-xl-2">Muy Bueno</label>
+            <input class="form-check-input me-3" type="radio" name="higieneBucal" id="higieneBucalMuyBueno" formControlName="higieneBucal" value="Muy Bueno">
+            <label for="higieneBucalBueno" class="col-3 col-md-2 col-lg-1 me-2">Bueno</label>
+            <input class="form-check-input me-3" type="radio" name="higieneBucal" id="higieneBucalBueno" formControlName="higieneBucal" value="Bueno">
+            <label for="higieneBucalDeficiente" class="col-4 col-lg-2 col-xl-2">Deficiente</label>
+            <input class="form-check-input me-3" type="radio" name="higieneBucal" id="higieneBucalDeficiente" formControlName="higieneBucal" value="Deficiente">
+            <label for="higieneBucalMalo" class="col-2 col-lg-1 me-2">Malo</label>
+            <input class="form-check-input me-3" type="radio" name="higieneBucal" id="higieneBucalMalo" formControlName="higieneBucal" value="Malo">
+
+        </div>
+    </div>
+</form>

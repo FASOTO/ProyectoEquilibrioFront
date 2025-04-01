@@ -1,7 +1,9 @@
+import { DeclaracionJurada } from "./declaracion-jurada";
 import { Domicilio } from "./domicilio";
 import { Imagen } from "./imagen";
 import { IPaciente } from "./ipaciente";
 import { Procedimiento } from "./procedimiento";
+import { SaludPaciente } from "./salud-paciente";
 
 export class Paciente implements IPaciente {
     id: number;
@@ -18,6 +20,10 @@ export class Paciente implements IPaciente {
     profesion: string;
     obraSocial: string;
     nroAfiliado: number;
+
+    // arreglar estos 2
+    declaracionJurada!:DeclaracionJurada;
+    saludPaciente!: SaludPaciente;
 
     constructor(id:number,nom:string, ape:string, dni:number,fecha:Date, telefono:string, nacio:string, domi:Domicilio, 
         proc:Procedimiento[], img:Imagen[], estadoCivil:string, profesion:string, obraSocial:string, nroAfiliado:number){
@@ -37,7 +43,6 @@ export class Paciente implements IPaciente {
         this.nroAfiliado = nroAfiliado;
     }
     
-
     get edad():number{
         const hoy = new Date();
 

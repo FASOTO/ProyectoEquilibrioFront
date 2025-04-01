@@ -1,6 +1,8 @@
+import { DeclaracionJurada } from "./declaracion-jurada";
 import { Domicilio } from "./domicilio";
 import { Imagen } from "./imagen";
 import { Procedimiento } from "./procedimiento";
+import { SaludPaciente } from "./salud-paciente";
 
 export interface IPaciente {
     nombre: string;
@@ -16,4 +18,6 @@ export interface IPaciente {
     profesion:string;
     obraSocial:string;
     nroAfiliado:number;
+    declaracionJurada:DeclaracionJurada;
+    saludPaciente:SaludPaciente;
 }
