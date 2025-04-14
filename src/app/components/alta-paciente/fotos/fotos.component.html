@@ -1,0 +1,14 @@
+<div class="row my-3">
+
+    @for (item of listaArchivosImagen(); track $index) {
+        <div class="text-center col-md-6">
+            <img [src]='item.url' class="img-thumbnail" width="400" height='300'>
+        </div>    
+    }
+    <div class="col-md-6">
+        <input class="form-control" type="file" #url (change)="cargarImagen($event)">
+    </div>
+    <!-- <div class="text-center col-md-6">
+        <img [ngSrc]="direccion" class="img-thumbnail" width="400" height='300'>
+    </div> -->
+</div>

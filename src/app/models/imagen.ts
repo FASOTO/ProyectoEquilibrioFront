@@ -1,3 +1,4 @@
 export interface Imagen {
-    url:string
+    url:string,
+    archivo:File
 }

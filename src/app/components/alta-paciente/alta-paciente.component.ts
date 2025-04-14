@@ -5,12 +5,14 @@ import { DatosPersonalesComponent } from "./datos-personales/datos-personales.co
 import { FormBuilder } from '@angular/forms';
 import { PacienteService } from '../../services/paciente.service';
 import { IPaciente } from '../../models/ipaciente';
-import { Procedimiento } from '../../models/procedimiento';
 import { SaludPacienteComponent } from "./salud-paciente/salud-paciente.component";
+import { FotosComponent } from "./fotos/fotos.component";
+import { Imagen } from '../../models/imagen';
+import { ImagenService } from '../../services/imagen.service';
 
 @Component({
   selector: 'app-alta-paciente',
-  imports: [DeclaracionJuradaComponent, OdontogramaComponent, DatosPersonalesComponent, SaludPacienteComponent],
+  imports: [DeclaracionJuradaComponent, OdontogramaComponent, DatosPersonalesComponent, SaludPacienteComponent, FotosComponent],
   templateUrl: './alta-paciente.component.html',
   styleUrl: './alta-paciente.component.css'
 })
@@ -22,6 +24,7 @@ export class AltaPacienteComponent {
   }
   fb = inject(FormBuilder)
   servicio = inject(PacienteService);
+  imagenServicio = inject(ImagenService)
 
   formDatosPersonales = this.fb.group({
     nombre: '',
@@ -194,6 +197,8 @@ export class AltaPacienteComponent {
 
   })
 
+  listaProcedimientos = signal([])
+  listaImagenes = signal<Imagen[]>([])
   altaPaciente() {
     let pac: IPaciente = {
       nombre: this.formDatosPersonales.value.nombre as string,
@@ -211,10 +216,7 @@ export class AltaPacienteComponent {
         numeracion: Number(this.formDatosPersonales.value.numeroCalle),
         localidad: this.formDatosPersonales.value.localidad as string
       },
-      procedimientos: this.lista(),
-      imagenes: [{
-        url: ''
-      }],
+      procedimientos: this.listaProcedimientos(),
       declaracionJurada: {
         padreVive: this.formDeclaracionJurada.value.padreVive as boolean,
         enfermedadPadre: this.formDeclaracionJurada.value.enfermedadPadre ?? '',
@@ -335,11 +337,11 @@ export class AltaPacienteComponent {
 
         observadoAnormalLabios: this.formSaludPaciente.value.observadoAnormalLabios ?? '',
         observadoAnormalLengua: this.formSaludPaciente.value.observadoAnormalLengua ?? '',
-        observadoAnormalPaladar: this.formSaludPaciente.value.observadoAnormalPaladar?? '',
+        observadoAnormalPaladar: this.formSaludPaciente.value.observadoAnormalPaladar ?? '',
         observadoAnormalPisoBoca: this.formSaludPaciente.value.observadoAnormalPisoBoca ?? '',
         observadoAnormalCarrillos: this.formSaludPaciente.value.observadoAnormalCarrillos ?? '',
         observadoAnormalRebordes: this.formSaludPaciente.value.observadoAnormalRebordes ?? '',
-        observadoAnormalTrigonos: this.formSaludPaciente.value.observadoAnormalTrigonos?? '',
+        observadoAnormalTrigonos: this.formSaludPaciente.value.observadoAnormalTrigonos ?? '',
         observadoAnormalRetromolar: this.formSaludPaciente.value.observadoAnormalRetromolar ?? '',
 
         lesionManchas: this.formSaludPaciente.value.lesionManchas as boolean,
@@ -368,11 +370,20 @@ export class AltaPacienteComponent {
         higieneBucal: this.formSaludPaciente.value.higieneBucal ?? '',
       }
     }
-    this.servicio.crearPaciente(pac)
+
+    this.servicio.crearPaciente(pac).subscribe(id => {
+      if (id >= 0) {
+        this.imagenServicio.createImagen(id, this.listaImagenes()).subscribe(p => {
+          console.log(p);
+        });
+      }
+    })
+    this.formDatosPersonales.reset();
+    this.formDeclaracionJurada.reset();
+    this.formSaludPaciente.reset();
 
   }
 
-  lista = signal([])
 
   // variable de prubea luego borrar
   // lista = signal([

@@ -13,7 +13,6 @@ export interface IPaciente {
     nacionalidad: string;
     domicilio: Domicilio;
     procedimientos: Procedimiento[];
-    imagenes: Imagen[];
     estadoCivil:string;
     profesion:string;
     obraSocial:string;
