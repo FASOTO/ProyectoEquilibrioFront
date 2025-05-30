@@ -5,6 +5,7 @@ import { Imagen } from '../../../models/imagen';
   selector: 'app-fotos',
   imports: [],
   templateUrl: './fotos.component.html',
+  styleUrl:'./fotos.component.css',
   
 })
 export class FotosComponent {
@@ -23,5 +24,12 @@ export class FotosComponent {
       })
     }
     input.value =''
+    
+  }
+
+  borrarFoto(item:Imagen){
+    this.listaArchivosImagen.update(lista=> lista.filter((it:Imagen) =>{
+      return it.archivo != item.archivo;
+    }));
   }
 }

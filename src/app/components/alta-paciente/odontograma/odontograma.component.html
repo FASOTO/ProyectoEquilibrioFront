@@ -1,32 +1,35 @@
 <div class="container px-0">
-    <div class="row px-3">
-      <div class="col-12" #contenedor1>
-        <canvas #canvas1 class="position-absolute z-0"></canvas>
-        <canvas #canvas2 class="position-absolute z-1"></canvas>
-        <canvas #canvas3 class="position-absolute z-2" (mousemove)="mouseMovePrimero($event)"
-          (click)="mouseClickPrimero($event)"></canvas>
-      </div>
+  <div class="row px-3">
+    <div class="col-12" #contenedor1>
+      <canvas #canvas1 class="position-absolute z-0"></canvas>
+      <canvas #canvas2 class="position-absolute z-1"></canvas>
+      <canvas #canvas3 class="position-absolute z-2" (mousemove)="mouseMovePrimero($event)" (click)="mouseClickPrimero($event)"></canvas>
     </div>
-    <div class="row px-3">
-      <div class="col-2">
-        <h4>Colores</h4>
-        <input type="radio" class="btn-check" name="color" id="azul" #inputAzul autocomplete="off" checked>
-        <label class="btn btn-outline-primary m-1" for="azul">Azul</label>
-  
-        <input type="radio" class="btn-check" name="color" id="rojo" #inputRojo autocomplete="off">
-        <label class="btn btn-outline-danger m-1" for="rojo">Rojo</label>
-      </div>
-      <div class="col-8" #contenedor2>
-        <canvas #canvas4 class="position-absolute z-0"></canvas>
-        <canvas #canvas5 class="position-absolute z-1"></canvas>
-        <canvas #canvas6 class="position-absolute z-2" (mousemove)="mouseMoveSegundo($event)"
-          (click)="mouseClickSegundo($event)"></canvas>
-      </div>
-      <div class="col-2">
+  </div>
+  <div class="row px-3">
+    <div class="col-2">
+      @if(mostrarOpciones()){
+      <h4>Colores</h4>
+      <input type="radio" class="btn-check" name="color" id="azul" #inputAzul autocomplete="off" checked (change)="opcionColor('azul')">
+      <label class="btn btn-outline-primary m-1" for="azul">Azul</label>
+
+      <input type="radio" class="btn-check" name="color" id="rojo" #inputRojo autocomplete="off" (change)="opcionColor('rojo')">
+      <label class="btn btn-outline-danger m-1" for="rojo">Rojo</label>
+      }
+    </div>
+    <div class="col-8" #contenedor2>
+      <canvas #canvas4 class="position-absolute z-0"></canvas>
+      <canvas #canvas5 class="position-absolute z-1"></canvas>
+      <canvas #canvas6 class="position-absolute z-2" (mousemove)="mouseMoveSegundo($event)" (click)="mouseClickSegundo($event)"></canvas>
+    </div>
+    <div class="col-2">
+      @if(mostrarOpciones()){
+
         <h6>Procedimiento</h6>
         @for (item of opciones.keys(); track $index) {
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="pintar" id={{item}} value={{item}} (change)="opcionSeleccionada(item)">
+          <input class="form-check-input" type="radio" name="pintar" id={{item}} value={{item}}
+            (change)="opcionSeleccionada(item)">
           <label class="form-check-label" for={{item}}>{{opciones.get(item)}}</label>
         </div>
         }
@@ -36,6 +39,7 @@
             <img src="icon/18.png" width="10">
           </label>
         </div>
-      </div>
+      }
     </div>
   </div>
+</div>

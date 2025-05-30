@@ -1,0 +1,14 @@
+<div class="row fs-3 m-2">
+        
+    <p class="col-md-6 py-2 h4">Fecha Nacimiento: {{paciente()?.fechaNacimiento | date:'dd/MM/yyyy'}}</p>
+    <p class="col-md-6 py-2 h4">DNI: {{paciente()?.dni}}</p>
+    <p class="col-md-6 py-2 h4">Telefono: {{paciente()?.telefono}}</p>
+    <p class="col-md-6 py-2 h4">Nacionalidad: {{paciente()?.nacionalidad}}</p>
+    <p class="col-md-6 py-2 h4">Estado Civil: {{paciente()?.estadoCivil}}</p>
+    <p class="col-md-6 py-2 h4">Edad: {{paciente()?.edad}}</p>
+    <p class="col-md-6 py-2 h4">Profesion: {{paciente()?.profesion}}</p>
+    <hr>
+    <p class="h3">DOMICILIO</p>
+    <p class="col-md-6 py-2 h4">{{paciente()?.domicilio?.calle}} {{paciente()?.domicilio?.numeracion}}, {{paciente()?.domicilio?.localidad}} </p>
+    
+</div>

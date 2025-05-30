@@ -1,6 +1,7 @@
+<p class="text-body-secondary h3 p-3">Paciente: {{paciente.apellido.toUpperCase()}}, {{paciente.nombre}}</p>
 <div class="d-flex justify-content-between">
-   <p class="text-body-secondary display-6 p-3">Paciente: {{this.paciente.apellido.toUpperCase()}}, {{this.paciente.nombre}}</p>
-   <p class="text-body-secondary display-6 p-3">O.Social: </p>
+   <p class="text-body-secondary h3 p-3">O.Social: {{paciente.obraSocial}}</p>
+   <p class="text-body-secondary h3 p-3">Nro Afiliado: {{paciente.nroAfiliado}}</p>
 </div>
 
 <nav class="nav nav-tabs">
@@ -13,9 +14,9 @@
         <app-detalle-datos [paciente]="this.paciente"/>
      }
      @if (activeTab === 'declaracionJurada'){
-        <!-- <app-declaracion-jurada/> -->
+        <app-detalle-paciente-declaracion [paciente]="this.paciente"/>
      }
      @if (activeTab === 'odontograma'){
-        <!-- <app-odontograma [(listaProcedimientos)]="lista"/> -->
+        <app-odontograma [(listaProcedimientos)]= "this.listaProcedimientos" [mostrarOpciones]="false"/>
      }
 </div>

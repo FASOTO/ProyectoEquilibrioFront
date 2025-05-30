@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, model, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, input, model, ViewChild } from '@angular/core';
 import { OdontogramaLargo } from '../../../models/odontograma-largo';
 import { OdontogramaChico } from '../../../models/odontograma-chico';
 import { Procedimiento } from '../../../models/procedimiento';
@@ -19,7 +19,6 @@ export class OdontogramaComponent {
   @ViewChild('canvas6', { static: true }) miCanvas6!: ElementRef
   @ViewChild('contenedor1', { static: true }) grupo1!: ElementRef
   @ViewChild('contenedor2', { static: true }) grupo2!: ElementRef
-  @ViewChild('inputRojo', { static: true }) inputColorRojo!: ElementRef
 
   private odontoGrande!: OdontogramaLargo;
   private odontoChico!: OdontogramaChico;
@@ -32,7 +31,9 @@ export class OdontogramaComponent {
     .set("pintarMedio", "- Desgaste")
 
   private seleccion: string = '';
-  listaProcedimientos = model<Procedimiento[]>();
+  private seleccionColor: string = '';
+  listaProcedimientos = model<Procedimiento[]>([]);
+  mostrarOpciones = input.required<boolean>();
 
   ngOnInit(): void {
     this.odontoGrande = new OdontogramaLargo(this.miCanvas1, this.miCanvas2, this.miCanvas3, this.grupo1);
@@ -41,6 +42,7 @@ export class OdontogramaComponent {
     this.odontoGrande.dibujarEstructura(this.grupo1.nativeElement.clientWidth - 20);
     this.odontoChico.dibujarEstructura(this.grupo1.nativeElement.clientWidth);
 
+    
     this.odontoGrande.setListaProcedimientos(this.listaProcedimientos() as Procedimiento[])
     this.odontoChico.setListaProcedimientos(this.listaProcedimientos() as Procedimiento[])
 
@@ -56,14 +58,14 @@ export class OdontogramaComponent {
   }
   mouseClickPrimero(event: MouseEvent) {
     if (this.seleccion != '')
-      this.odontoGrande.mouseClick(event, this.seleccion, (this.inputColorRojo.nativeElement as HTMLInputElement).checked ? "rojo" : "azul");
+      this.odontoGrande.mouseClick(event, this.seleccion, this.seleccionColor);
   }
   mouseMoveSegundo(event: MouseEvent) {
     this.odontoChico.mouseMoveEvent(event);
   }
   mouseClickSegundo(event: MouseEvent) {
     if (this.seleccion != '')
-      this.odontoChico.mouseClick(event, this.seleccion, (this.inputColorRojo.nativeElement as HTMLInputElement).checked ? "rojo" : "azul");
+      this.odontoChico.mouseClick(event, this.seleccion, this.seleccionColor);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -75,5 +77,9 @@ export class OdontogramaComponent {
 
   opcionSeleccionada(seleccionado: string) {
     this.seleccion = seleccionado
+  }
+
+  opcionColor(color: string) {
+    this.seleccionColor = color;
   }
 }

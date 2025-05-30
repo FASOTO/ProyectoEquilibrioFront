@@ -31,10 +31,7 @@ export class PacienteService {
 
   private getPacientes(): void {
     this.getDb().subscribe(res => {
-      res.forEach(p => this.state().pacientes.set(p.id,
-        new Paciente(p.id, p.nombre, p.apellido, p.dni, new Date(p.fechaNacimiento), p.telefono, p.nacionalidad, p.domicilio,
-          p.procedimientos, p.estadoCivil, p.profesion, p.obraSocial, p.nroAfiliado)
-      ));
+      res.forEach(p => this.state().pacientes.set(p.id, new Paciente(p)));
       this.state.set({ pacientes: this.state().pacientes });
     })
   }

@@ -9,6 +9,7 @@ import { SaludPacienteComponent } from "./salud-paciente/salud-paciente.componen
 import { FotosComponent } from "./fotos/fotos.component";
 import { Imagen } from '../../models/imagen';
 import { ImagenService } from '../../services/imagen.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alta-paciente',
@@ -25,6 +26,8 @@ export class AltaPacienteComponent {
   fb = inject(FormBuilder)
   servicio = inject(PacienteService);
   imagenServicio = inject(ImagenService)
+
+  route : Router = inject(Router)
 
   formDatosPersonales = this.fb.group({
     nombre: '',
@@ -199,6 +202,7 @@ export class AltaPacienteComponent {
 
   listaProcedimientos = signal([])
   listaImagenes = signal<Imagen[]>([])
+  
   altaPaciente() {
     let pac: IPaciente = {
       nombre: this.formDatosPersonales.value.nombre as string,
@@ -382,34 +386,7 @@ export class AltaPacienteComponent {
     this.formDeclaracionJurada.reset();
     this.formSaludPaciente.reset();
 
+    this.route.navigateByUrl('/')
+    
   }
-
-
-  // variable de prubea luego borrar
-  // lista = signal([
-  //   {
-  //     numeroDiente: 15,
-  //     caraDiente: 4,
-  //     color: '#0073BB',
-  //     tipoProcedimiento: 'pintarRelleno'
-  //   },
-  //   {
-  //     numeroDiente: 47,
-  //     caraDiente: 6,
-  //     color: '#F50B0B',
-  //     tipoProcedimiento: 'pintarX'
-  //   },
-  //   {
-  //     numeroDiente: 55,
-  //     caraDiente: 5,
-  //     color: '#F50B0B',
-  //     tipoProcedimiento: 'pintarRelleno'
-  //   },
-  //   {
-  //     numeroDiente: 83,
-  //     caraDiente: 6,
-  //     color: '#F50B0B',
-  //     tipoProcedimiento: 'pintarX'
-  //   }
-  // ])
 }

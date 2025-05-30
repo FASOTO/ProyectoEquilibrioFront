@@ -1,0 +1,4 @@
+.imagenes{
+    max-height: 300px; 
+    object-fit: scale-down;
+}

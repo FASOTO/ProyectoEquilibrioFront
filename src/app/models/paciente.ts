@@ -15,32 +15,30 @@ export class Paciente implements IPaciente {
     nacionalidad: string;
     domicilio: Domicilio ;
     procedimientos: Procedimiento[];
-    imagenes: Imagen[];
     estadoCivil:string;
     profesion: string;
     obraSocial: string;
     nroAfiliado: number;
 
     // arreglar estos 2
-    declaracionJurada!:DeclaracionJurada;
+    declaracionJurada:DeclaracionJurada;
     saludPaciente!: SaludPaciente;
 
-    constructor(id:number,nom:string, ape:string, dni:number,fecha:Date, telefono:string, nacio:string, domi:Domicilio, 
-        proc:Procedimiento[], img:Imagen[], estadoCivil:string, profesion:string, obraSocial:string, nroAfiliado:number){
-        this.id = id;
-        this.nombre = nom;
-        this.apellido = ape;
-        this.dni = dni;
-        this.fechaNacimiento = fecha;
-        this.telefono = telefono;
-        this.nacionalidad = nacio;
-        this.domicilio = domi;
-        this.procedimientos = proc;
-        this.imagenes = img;
-        this.estadoCivil = estadoCivil;
-        this.profesion=profesion;
-        this.obraSocial=obraSocial;
-        this.nroAfiliado = nroAfiliado;
+    constructor(newPaciente:Paciente){
+        this.id = newPaciente.id;
+        this.nombre = newPaciente.nombre;
+        this.apellido = newPaciente.apellido;
+        this.dni = newPaciente.dni;
+        this.fechaNacimiento = new Date (newPaciente.fechaNacimiento);
+        this.telefono = newPaciente.telefono;
+        this.nacionalidad = newPaciente.nacionalidad;
+        this.domicilio = newPaciente.domicilio;
+        this.procedimientos = newPaciente.procedimientos;
+        this.estadoCivil = newPaciente.estadoCivil;
+        this.profesion=newPaciente.profesion;
+        this.obraSocial=newPaciente.obraSocial;
+        this.nroAfiliado = newPaciente.nroAfiliado;
+        this.declaracionJurada = newPaciente.declaracionJurada;
     }
     
     get edad():number{
@@ -55,5 +53,4 @@ export class Paciente implements IPaciente {
         }
         return edad;
     }
-
 }

@@ -1,0 +1,74 @@
+<div class="row fs-3 m-3">
+    <p class="col-md-6 h5 mb-3">Padre Vive: <span class="fw-semibold"> {{paciente()?.declaracionJurada?.padreVive? 'SI':'NO' + ' ('+ paciente()?.declaracionJurada?.enfermedadPadre +')'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Madre Vive: <span class="fw-semibold">{{paciente()?.declaracionJurada?.madreVive? 'SI':'NO' + ' ('+ paciente()?.declaracionJurada?.enfermedadMadre +')'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Hermanos: <span class="fw-semibold">{{paciente()?.declaracionJurada?.madreVive? 'SI' + ' ('+ paciente()?.declaracionJurada?.hermanosSanos +')':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Sufre alguna enfermadad: <span class="fw-semibold">{{paciente()?.declaracionJurada?.sufreEnfermedad? 'SI' + ' ('+ paciente()?.declaracionJurada?.enfermedadCual +')':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Hace algun tratamiento medico: <span class="fw-semibold">{{paciente()?.declaracionJurada?.tratamientoMedico? 'SI' + ' ('+ paciente()?.declaracionJurada?.tratamientoMedicoCual +')':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Medicamentos que consume habitualmente: <span class="fw-semibold">{{paciente()?.declaracionJurada?.medicamentosConsumeHabitualmente}}</span></p>
+    <p class="col-12 h5 mb-3">Medicamentos que que ha consumido en los ultimos 5 años: <span class="fw-semibold">{{paciente()?.declaracionJurada?.medicamentoUltimos5}}</span></p>
+    
+    <p class="col-md-6 h5 mb-3">Realiza algun deporte: <span class="fw-semibold">{{paciente()?.declaracionJurada?.padreVive? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Nota algun malestar al realizarlo: <span class="fw-semibold">{{paciente()?.declaracionJurada?.malestarDeporte? 'SI':'NO'}}</span></p>
+    <p class="col-12 h5 mb-3">Alergico a alguna droga: <span class="fw-semibold">{{alergicoDrogas()}}</span></p>
+    
+    <p class="col-12 h5 mb-3">Cuando le sacan una muela o se lastima, cicatriza bien: <span class="fw-semibold">{{paciente()?.declaracionJurada?.cicatriza? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Sangra mucho: <span class="fw-semibold">{{paciente()?.declaracionJurada?.sangraMucho}}</span></p>
+    <p class="col-12 h5 mb-3">Tiene problema de colageno (hiperlaxitud): <span class="fw-semibold">{{paciente()?.declaracionJurada?.problemaColageno? 'SI':'NO'}}</span></p>
+    
+    <p class="col-md-6 h5 mb-3">Antecedentes de fiebre reumática:<span class="fw-semibold">{{paciente()?.declaracionJurada?.fiebreReumatica? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Se protege con alguna medicación:<span class="fw-semibold">{{paciente()?.declaracionJurada?.fiebreReumaticaMedicacion}}</span></p>
+
+    <p class="col-md-4 h5 mb-3">Es diabético: <span class="fw-semibold">{{paciente()?.declaracionJurada?.diabetico? 'SI':'NO'}}</span></p>
+    <p class="col-md-4 h5 mb-3">Esta Controlado: <span class="fw-semibold">{{paciente()?.declaracionJurada?.controladoDiabetico}}</span></p>
+    <p class="col-md-4 h5 mb-3">Con que: <span class="fw-semibold">{{paciente()?.declaracionJurada?.conQueDiabetico}}</span></p>
+
+    <p class="col-md-6 h5 mb-3">Tiene algún problema cardíaco: <span class="fw-semibold">{{paciente()?.declaracionJurada?.problemaCardiaco? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Cual: <span class="fw-semibold">{{paciente()?.declaracionJurada?.problemaCardiacoCual}}</span></p>
+
+    <p class="col-md-6 h5 mb-3">Toma seguido aspirina y anticoagulante: <span class="fw-semibold">{{paciente()?.declaracionJurada?.aspirinaAnticoagulante? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Con que frecuencia: <span class="fw-semibold">{{paciente()?.declaracionJurada?.aspirinaAnticoagulanteFrecuencia}}</span></p>
+
+    <p class="col-12 h5 mb-3">Tiene presión alta: <span class="fw-semibold">{{paciente()?.declaracionJurada?.presion? 'SI':'NO'}}</span></p>
+
+    <p class="col-md-6 h5 mb-3">Chagas: <span class="fw-semibold">{{paciente()?.declaracionJurada?.chagas? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Esta en tratamiento: <span class="fw-semibold">{{paciente()?.declaracionJurada?.chagasTratamiento}}</span></p>
+
+    <p class="col-md-6 h5 mb-3">Problemas renales: <span class="fw-semibold">{{paciente()?.declaracionJurada?.problemasRenales? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Ulcera gastrica: <span class="fw-semibold">{{paciente()?.declaracionJurada?.ulceraGastrica? 'SI':'NO'}}</span></p>
+
+    <p class="col-md-6 h5 mb-3">Tuvo Hepatitis: <span class="fw-semibold">{{paciente()?.declaracionJurada?.hepatitis? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Tipo hepatitis: <span class="fw-semibold">{{paciente()?.declaracionJurada?.hepatitisTipo }}</span></p>
+
+    <p class="col-md-6 h5 mb-3">Tiene algun problema hepatico: <span class="fw-semibold">{{paciente()?.declaracionJurada?.problemaHepatico? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Cual: <span class="fw-semibold">{{paciente()?.declaracionJurada?.problemaHepaticoCual }}</span></p>
+
+    <p class="col-12 h5 mb-3">Tuvo convulsiones: <span class="fw-semibold">{{paciente()?.declaracionJurada?.convulsiones? 'SI':'NO'}}</span></p>
+    
+    <p class="col-md-6 h5 mb-3">Es epileptico: <span class="fw-semibold">{{paciente()?.declaracionJurada?.epileptico? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Medicacion que toma: <span class="fw-semibold">{{paciente()?.declaracionJurada?.epilepticoMedicacion }}</span></p>
+
+    <p class="col-md-6 h5 mb-3">Ha tenido sífilis o gonorrea: <span class="fw-semibold">{{paciente()?.declaracionJurada?.sifilisGonorrea? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Otra enfermedad infectocontagiosa: <span class="fw-semibold">{{paciente()?.declaracionJurada?.otraEnfermedadInfectocontagiosa? 'SI':'NO'}}</span></p>
+
+    <p class="col-12 h5 mb-3">Tuvo transfusiones: <span class="fw-semibold">{{paciente()?.declaracionJurada?.transfusiones? 'SI':'NO'}}</span></p>
+
+    <p class="col-md-4 h5 mb-3">Fue operado alguna vez: <span class="fw-semibold">{{paciente()?.declaracionJurada?.operado? 'SI':'NO'}}</span></p>
+    <p class="col-md-4 h5 mb-3">De que: <span class="fw-semibold">{{paciente()?.declaracionJurada?.operadoDeQue }}</span></p>
+    <p class="col-md-4 h5 mb-3">Cuando <span class="fw-semibold">{{paciente()?.declaracionJurada?.operadoCuando }}</span></p>
+    
+    <p class="col-md-6 h5 mb-3">Tiene algun problema respiratorio: <span class="fw-semibold">{{paciente()?.declaracionJurada?.problemaRespiratorio? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Cual: <span class="fw-semibold">{{paciente()?.declaracionJurada?.problemaRespiratorioCual}}</span></p>
+
+    <p class="col-12 h5 mb-3">Fuma: <span class="fw-semibold">{{paciente()?.declaracionJurada?.fuma? 'SI':'NO'}}</span></p>
+
+    <p class="col-md-6 h5 mb-3">Esta embarazada: <span class="fw-semibold">{{paciente()?.declaracionJurada?.embarazada? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">De cuantos meses: <span class="fw-semibold">{{paciente()?.declaracionJurada?.embarazadaMeses}}</span></p>
+
+    <p class="col-md-6 h5 mb-3">Alguna otra enfermedad o recomendacion de su medico: <span class="fw-semibold">{{paciente()?.declaracionJurada?.algunaOtraEnfermedad? 'SI':'NO'}}</span></p>
+    <p class="col-md-6 h5 mb-3">Cual: <span class="fw-semibold">{{paciente()?.declaracionJurada?.algunaOtraEnfermedadCual}}</span></p>
+
+    <p class="col-12 h5 mb-3">Realiza algun tipo de tratamiento homeopatico, acupuntura otros: <span class="fw-semibold">{{paciente()?.declaracionJurada?.tratamientoHomeopaticoAcupuntura}}</span></p>
+
+    <p class="col-12 h5 mb-3">Medico Clinico: <span class="fw-semibold">{{paciente()?.declaracionJurada?.medicoClinico}}</span></p>
+    <p class="col-12 h5 mb-3">Clinica, hospital en caso de hacer falta derivacion: <span class="fw-semibold">{{paciente()?.declaracionJurada?.clinicaHospital}}</span></p>
+</div>

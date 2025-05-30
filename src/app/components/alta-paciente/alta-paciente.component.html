@@ -1,13 +1,18 @@
 <h3 class="text-body-secondary display-6 p-3">Formulario Paciente</h3>
 <div class="mx-3">
    <nav class="nav nav-tabs">
-      <button class="nav-link" type="button" [class.active]="activeTab === 'datosPersonales'" (click)="setActiveTab('datosPersonales')">Datos Personales</button>
-      <button class="nav-link" type="button" [class.active]="activeTab === 'declaracionJurada'" (click)="setActiveTab('declaracionJurada')">Declaracion Jurada</button>
-      <button class="nav-link" type="button" [class.active]="activeTab === 'odontograma'" (click)="setActiveTab('odontograma')">Odontograma</button>
-      <button class="nav-link" type="button" [class.active]="activeTab === 'fotos'" (click)="setActiveTab('fotos')">Fotos</button>
-      <button class="nav-link" type="button" [class.active]="activeTab === 'salud'" (click)="setActiveTab('salud')">Salud del Paciente</button>
+      <button class="nav-link" type="button" [class.active]="activeTab === 'datosPersonales'"
+         (click)="setActiveTab('datosPersonales')">Datos Personales</button>
+      <button class="nav-link" type="button" [class.active]="activeTab === 'declaracionJurada'"
+         (click)="setActiveTab('declaracionJurada')">Declaracion Jurada</button>
+      <button class="nav-link" type="button" [class.active]="activeTab === 'odontograma'"
+         (click)="setActiveTab('odontograma')">Odontograma</button>
+      <button class="nav-link" type="button" [class.active]="activeTab === 'fotos'"
+         (click)="setActiveTab('fotos')">Fotos</button>
+      <button class="nav-link" type="button" [class.active]="activeTab === 'salud'"
+         (click)="setActiveTab('salud')">Salud del Paciente</button>
    </nav>
-   <div class="tab-content">
+   <div class="tab-content row">
       @if (activeTab === 'datosPersonales'){
       <app-datos-personales [formDatosPersonales]="formDatosPersonales" />
       }
@@ -15,14 +20,14 @@
       <app-declaracion-jurada [formDeclaracionJurada]="formDeclaracionJurada" />
       }
       @if (activeTab === 'odontograma'){
-      <app-odontograma [(listaProcedimientos)]="listaProcedimientos" />
+      <app-odontograma [(listaProcedimientos)]="listaProcedimientos" [mostrarOpciones]="true"/>
       }
       @if (activeTab === 'salud'){
       <app-salud-paciente [formSaludPaciente]="formSaludPaciente" />
       }
       @if (activeTab === 'fotos' ){
-         <app-fotos [(listaArchivosImagen)]="listaImagenes"/>
-         }
+      <app-fotos [(listaArchivosImagen)]="listaImagenes" />
+      }
    </div>
 </div>
 
