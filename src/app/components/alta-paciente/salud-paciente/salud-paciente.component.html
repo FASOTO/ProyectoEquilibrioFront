@@ -43,11 +43,9 @@
     <div class="d-flex my-3">
         <h6 class="me-2 col-2">Ha tenido dolor?</h6>
         <label for="haTenidoDolorSi" class="me-1">si</label>
-        <input class="form-check-input me-3" type="radio" name="haTenidoDolor" id="haTenidoDolorSi"
-            formControlName="haTenidoDolor" value="true">
+        <input class="form-check-input me-3" type="radio" name="haTenidoDolor" id="haTenidoDolorSi" formControlName="haTenidoDolor" value="true">
         <label for="haTenidoDolorNo" class="me-1">No</label>
-        <input class="form-check-input me-3" type="radio" name="haTenidoDolor" id="haTenidoDolorNo"
-            formControlName="haTenidoDolor" value="false">
+        <input class="form-check-input me-3" type="radio" name="haTenidoDolor" id="haTenidoDolorNo" formControlName="haTenidoDolor" value="false">
     </div>
     <div class="row d-flex my-3">
         <h6 class="col-sm-3 col-lg-2 ">De que tipo?</h6>
@@ -55,68 +53,55 @@
             <div class="row">
                 <div class="col-3 col-xl-2 mb-1">
                     <label for="queTipoSuave" class="me-1">Suave</label>
-                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoSuave"
-                        (change)="tipoDolor($event, 'Suave')">
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoSuave" (change)="tipoDolor($event, 'Suave')">
                 </div>
                 <div class="col-4 col-xl-3 col-xxl-2 mb-1">
                     <label for="queTipoModerado" class="me-1">Moderado</label>
-                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoModerado"
-                        (change)="tipoDolor($event, 'Moderado')">
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoModerado" (change)="tipoDolor($event, 'Moderado')">
                 </div>
                 <div class="col-3 col-xl-2 mb-1">
                     <label for="queTipoIntenso" class="me-1">Intenso</label>
-                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoIntenso"
-                        (change)="tipoDolor($event, 'Intenso')">
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoIntenso" (change)="tipoDolor($event, 'Intenso')">
                 </div>
                 <div class="col-4 col-xl-3 col-xxl-2 mb-2">
                     <label for="queTipoTemporario" class="me-1">Temporario</label>
-                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoTemporario"
-                        (change)="tipoDolor($event, 'Temporario')">
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoTemporario" (change)="tipoDolor($event, 'Temporario')">
                 </div>
                 <div class="col-4 col-xl-3 mb-1">
                     <label for="queTipoIntermitente" class="me-1">Intermitente</label>
-                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoIntermitente"
-                        (change)="tipoDolor($event, 'Intermitente')">
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoIntermitente" (change)="tipoDolor($event, 'Intermitente')">
                 </div>
                 <div class="col-4 col-lg-3 col-xxl-2 mb-2">
                     <label for="queTipoContinuo" class="me-1">Continuo</label>
-                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoContinuo"
-                        (change)="tipoDolor($event, 'Continuo')">
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoContinuo" (change)="tipoDolor($event, 'Continuo')">
                 </div>
                 <div class="col-4 col-xl-3 col-xxl-2 mb-1">
                     <label for="queTipoEspontaneo" class="me-1">Espontáneo</label>
-                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoEspontaneo"
-                        (change)="tipoDolor($event, 'Espontáneo')">
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoEspontaneo" (change)="tipoDolor($event, 'Espontáneo')">
                 </div>
                 <div class="col-4 col-lg-3 col-xxl-2 mb-1">
                     <label for="queTipoProvocado" class="me-1">Provocado</label>
-                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoProvocado"
-                        (change)="tipoDolor($event, 'Provocado')">
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoProvocado" (change)="tipoDolor($event, 'Provocado')">
                 </div>
                 <div class="col-3 col-xl-2 mb-1">
                     <label for="queTipoAlFrio" class="me-1">Al frio</label>
-                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoAlFrio"
-                        (change)="tipoDolor($event, 'Al frio')">
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoAlFrio" (change)="tipoDolor($event, 'Al frio')">
                 </div>
                 <div class="col-3 col-xl-2 mb-2">
                     <label for="queTipoAlCalor" class="me-1">Al calor</label>
-                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoAlCalor"
-                        (change)="tipoDolor($event, 'Al Calor')">
+                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoAlCalor" (change)="tipoDolor($event, 'Al Calor')">
                 </div>
                 <div class="col-12 col-xl-6 d-flex mb-2">
                     <label for="queTipoLocalizado" class="me-1">Localizado</label>
-                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoLocalizado"
-                        (change)="tipoDolor($event, 'Localizado')">
+                    <input type="checkbox" class="form-check-input me-3" name="localizado" id="localizado" formControlName="localizado">
                     <label for="localizadoDonde" class="me-1">Donde:</label>
                     <input type="text" class="form-control" id="localizadoDonde" formControlName="localizadoDonde">
                 </div>
                 <div class="col-12 col-xl-6 d-flex mb-2">
                     <label for="queTipoIrradiado" class="me-1">Irradiado</label>
-                    <input type="checkbox" class="form-check-input me-3" name="queTipo" id="queTipoIrradiado"
-                        (change)="tipoDolor($event, 'Irradiado')">
+                    <input type="checkbox" class="form-check-input me-3" name="irradiado" id="irradiado" formControlName="irradiado">
                     <label for="irradiadoHaciaDonde" class="me-1">Hacia donde:</label>
-                    <input type="text" class="form-control" id="irradiadoHaciaDonde"
-                        formControlName="irradiadoHaciaDonde">
+                    <input type="text" class="form-control" id="irradiadoHaciaDonde" formControlName="irradiadoHaciaDonde">
                 </div>
                 <div class="col-12 col-xl-6 d-flex mb-3">
                     <label for="puedeCalmarlo" class="me-1">Puede calmarlo con algo:</label>

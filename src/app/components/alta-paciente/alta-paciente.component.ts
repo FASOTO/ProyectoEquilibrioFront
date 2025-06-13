@@ -147,7 +147,11 @@ export class AltaPacienteComponent {
 
     haTenidoDolor: false,
     queTipo: this.fb.array([]),
+
+    localizado:false,
     localizadoDonde: '',
+
+    irradiado:false,
     irradiadoHaciaDonde: '',
     puedeCalmarlo: '',
 
@@ -322,7 +326,11 @@ export class AltaPacienteComponent {
 
         haTenidoDolor: this.formSaludPaciente.value.haTenidoDolor as boolean,
         queTipo: this.formSaludPaciente.value.queTipo?.join(' ') ?? '',
+
+        localizado: this.formSaludPaciente.value.localizado as boolean,
         localizadoDonde: this.formSaludPaciente.value.localizadoDonde ?? '',
+
+        irradiado: this.formSaludPaciente.value.irradiado as boolean,
         irradiadoHaciaDonde: this.formSaludPaciente.value.irradiadoHaciaDonde ?? '',
         puedeCalmarlo: this.formSaludPaciente.value.puedeCalmarlo ?? '',
 

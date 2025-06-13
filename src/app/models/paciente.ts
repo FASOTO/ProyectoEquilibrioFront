@@ -19,10 +19,9 @@ export class Paciente implements IPaciente {
     profesion: string;
     obraSocial: string;
     nroAfiliado: number;
-
-    // arreglar estos 2
+    imagenes: Imagen[];
     declaracionJurada:DeclaracionJurada;
-    saludPaciente!: SaludPaciente;
+    saludPaciente: SaludPaciente;
 
     constructor(newPaciente:Paciente){
         this.id = newPaciente.id;
@@ -39,6 +38,8 @@ export class Paciente implements IPaciente {
         this.obraSocial=newPaciente.obraSocial;
         this.nroAfiliado = newPaciente.nroAfiliado;
         this.declaracionJurada = newPaciente.declaracionJurada;
+        this.imagenes = newPaciente.imagenes;
+        this.saludPaciente = newPaciente.saludPaciente;
     }
     
     get edad():number{

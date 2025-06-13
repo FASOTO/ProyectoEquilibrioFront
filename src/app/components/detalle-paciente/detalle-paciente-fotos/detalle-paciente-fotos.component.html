@@ -1,1 +1,12 @@
-<p>detalle-paciente-fotos works!</p>
+<div class="my-3 row d-flex justify-content-start align-items-start">
+
+    @for (item of paciente()?.imagenes; track $index) {
+    <div class="card col-3 p-1 my-1">
+        <img [src]='item.url' class="img-thumbnail" width="400" height='300'>
+        <div class="card-body d-flex justify-content-between">
+
+        </div>
+    </div>
+    }
+    
+</div>

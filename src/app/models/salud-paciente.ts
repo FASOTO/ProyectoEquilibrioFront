@@ -9,8 +9,13 @@ export interface SaludPaciente {
 
     haTenidoDolor:boolean;
     queTipo:string;
+
+    localizado:boolean;
     localizadoDonde:string;
+
+    irradiado:boolean;
     irradiadoHaciaDonde:string;
+    
     puedeCalmarlo:string;
 
     sufrioGolpeDientes:boolean;

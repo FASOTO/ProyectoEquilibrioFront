@@ -1,1 +1,61 @@
-<p>detalle-paciente-salud works!</p>
+<div class="row fs-3 m-3">
+    <p class="col-xl-6 h5 mb-3">Porque asistio a la consulta: <span class="fw-semibold"> {{paciente()?.saludPaciente?.porqueAsistioConsulta}}</span></p>
+    
+    <p class="col-xl-6 h5 mb-3">Consulto antes con algun otro profesional: <span class="fw-semibold">{{paciente()?.saludPaciente?.consultoConOtroProfesional? 'SI' : 'NO'}}</span></p>
+    
+    <p class="col-xl-4 h5 mb-3">Tomo algun medicamento: <span class="fw-semibold">{{paciente()?.saludPaciente?.tomoAlgunMedicamento? 'SI' + ' ('+ paciente()?.saludPaciente?.nombreMedicamentos +')':'NO'}}</span></p>
+
+    <p class="col-xl-4 h5 mb-3">Desde cuando: <span class="fw-semibold">{{paciente()?.saludPaciente?.desdeCuando}}</span></p>
+    <p class="col-xl-4 h5 mb-3">Obtuvo resultados: <span class="fw-semibold">{{paciente()?.saludPaciente?.obtuvoResultados? 'SI' : 'NO'}}</span></p>
+    
+    <p class="col-xl-3 h5 mb-3">Ha tenido dolor: <span class="fw-semibold">{{paciente()?.saludPaciente?.haTenidoDolor? 'SI' : 'NO'}}</span></p>
+    <p class="col-xl-9 h5 mb-3">De que tipo: <span class="fw-semibold">{{paciente()?.saludPaciente?.queTipo?.replaceAll(' ','-')}}</span></p>
+
+    <p class="col-xl-6 h5 mb-3">Localizado: <span class="fw-semibold">{{paciente()?.saludPaciente?.localizado? 'SI' + ' ('+ paciente()?.saludPaciente?.localizadoDonde +')':'NO'}}</span></p>
+    <p class="col-xl-6 h5 mb-3">Irradiado: <span class="fw-semibold">{{paciente()?.saludPaciente?.irradiado? 'SI' + ' ('+ paciente()?.saludPaciente?.irradiadoHaciaDonde +')':'NO'}}</span></p>
+    
+    <p class="col-xxl-6 h5 mb-3">Puede calmarlo con algo: <span class="fw-semibold">{{paciente()?.saludPaciente?.puedeCalmarlo}}</span></p>
+
+    <p class="col-xxl-4 h5 mb-3">Sufrio algun golpe en los dientes: <span class="fw-semibold">{{paciente()?.saludPaciente?.sufrioGolpeDientes? 'SI' + ' ('+ paciente()?.saludPaciente?.cuando +')':'NO'}}</span></p>
+    <p class="col-xxl-6 h5 mb-3">Como se produjo: <span class="fw-semibold">{{paciente()?.saludPaciente?.comoSeProdujo}}</span></p>
+
+    <p class="col-xxl-4 h5 mb-3">Se le fracturo algun diente: <span class="fw-semibold">{{paciente()?.saludPaciente?.fracturoDiente? 'SI' + ' ('+ paciente()?.saludPaciente?.fracturaDienteCual +')':'NO'}}</span></p>
+    <p class="col-xxl-6 h5 mb-3">Recibio algun tratamiento: <span class="fw-semibold">{{paciente()?.saludPaciente?.recibioTratamiento}}</span></p>
+
+    <p class="col-xxl-6 h5 mb-3">Tiene dificultad para hablar: <span class="fw-semibold">{{paciente()?.saludPaciente?.dificultadHablar}}</span></p>
+    
+    <p class="col-xxl-6 h5 mb-3">Para masticar: <span class="fw-semibold">{{paciente()?.saludPaciente?.masticar}}</span></p>
+    <p class="col-xxl-6 h5 mb-3">Para abrir la boca: <span class="fw-semibold">{{paciente()?.saludPaciente?.abrirBoca}}</span></p>
+    <p class="col-xxl-6 h5 mb-3">Para tragar alimentos: <span class="fw-semibold">{{paciente()?.saludPaciente?.tragarAlimentos}}</span></p>
+    <hr>
+    <p class="col-xxl-6 h5 mb-3">Ha observado algo anormal en los labios: <span class="fw-semibold">{{paciente()?.saludPaciente?.observadoAnormalLabios}}</span></p>
+    <p class="col-md-4 h5 mb-3">Lengua: <span class="fw-semibold">{{paciente()?.saludPaciente?.observadoAnormalLengua}}</span></p>
+    <p class="col-md-4 h5 mb-3">Paladar: <span class="fw-semibold">{{paciente()?.saludPaciente?.observadoAnormalPaladar}}</span></p>
+    <p class="col-md-4 h5 mb-3">Piso de boca: <span class="fw-semibold">{{paciente()?.saludPaciente?.observadoAnormalPisoBoca}}</span></p>
+    <p class="col-md-4 h5 mb-3">Carrillos: <span class="fw-semibold">{{paciente()?.saludPaciente?.observadoAnormalCarrillos}}</span></p>
+    <p class="col-md-4 h5 mb-3">Rebordes: <span class="fw-semibold">{{paciente()?.saludPaciente?.observadoAnormalRebordes}}</span></p>
+    <p class="col-md-4 h5 mb-3">Trigonos: <span class="fw-semibold">{{paciente()?.saludPaciente?.observadoAnormalTrigonos}}</span></p>
+    <p class="col-md-4 h5 mb-3">Retromolar: <span class="fw-semibold">{{paciente()?.saludPaciente?.observadoAnormalRetromolar}}</span></p>
+    <hr>
+    <h4>Que tipo de lesiones presenta</h4>
+    <p class="col-md-3 h5 mb-3">Manchas: <span class="fw-semibold">{{paciente()?.saludPaciente?.lesionManchas? 'SI' : 'NO'}}</span></p>
+    <p class="col-md-3 h5 mb-3">Abultamiento de los tejidos: <span class="fw-semibold">{{paciente()?.saludPaciente?.lesionAbultamientoTejidos? 'SI' : 'NO'}}</span></p>
+    <p class="col-md-3 h5 mb-3">Ulceraciones: <span class="fw-semibold">{{paciente()?.saludPaciente?.lesionUlceraciones? 'SI' : 'NO'}}</span></p>
+    <p class="col-md-3 h5 mb-3">Ampollas: <span class="fw-semibold">{{paciente()?.saludPaciente?.lesionAmpollar? 'SI' : 'NO'}}</span></p>
+    <p class="col-md-4 h5 mb-3">Otros: <span class="fw-semibold">{{paciente()?.saludPaciente?.lesionOtros}}</span></p>
+    <hr>
+    <p class="col-xxl-6 h5 mb-3">Le sangran las encias: <span class="fw-semibold">{{paciente()?.saludPaciente?.sangranEncias? 'SI' + ' ('+ paciente()?.saludPaciente?.sangranEnciasCuando +')':'NO'}}</span></p>
+    <p class="col-xxl-6 h5 mb-3">Sale pus de algun lugar de su boca: <span class="fw-semibold">{{paciente()?.saludPaciente?.pusBoca? 'SI' + ' ('+ paciente()?.saludPaciente?.pusBocaDonde +')':'NO'}}</span></p>
+    <p class="col-xxl-6 h5 mb-3">Tiene movilidad en sus dientes: <span class="fw-semibold">{{paciente()?.saludPaciente?.movilidadDientes? 'SI' :'NO'}}</span></p>
+    <p class="col-xxl-6 h5 mb-3">Al morder siente alto los dientes: <span class="fw-semibold">{{paciente()?.saludPaciente?.morderSienteAltoDientes}}</span></p>
+    <hr>
+    <p class="col-md-4 h5 mb-3">Ha tenido la cara hinchada: <span class="fw-semibold">{{paciente()?.saludPaciente?.caraHinchada? 'SI' :'NO'}}</span></p>
+    <p class="col-md-4 h5 mb-3">Se puso hielo: <span class="fw-semibold">{{paciente()?.saludPaciente?.caraHinchadaHielo}}</span></p>
+    <p class="col-md-4 h5 mb-3">Calor: <span class="fw-semibold">{{paciente()?.saludPaciente?.caraHinchadaCalor}}</span></p>
+    <p class="col-md-4 h5 mb-3">Otros: <span class="fw-semibold">{{paciente()?.saludPaciente?.caraHinchadaOtros}}</span></p>
+    <hr>
+    <p class="col-md-6 h5 mb-3">Momentos de azucar diarios: <span class="fw-semibold">{{paciente()?.saludPaciente?.azucarDiarios}}</span></p>
+    <p class="col-md-6 h5 mb-3">Indice de placa: <span class="fw-semibold">{{paciente()?.saludPaciente?.indicePlaca}}</span></p>
+    <hr>
+    <p class="col-md-6 h5 mb-3">Estado de la higiene bucal: <span class="fw-semibold">{{paciente()?.saludPaciente?.higieneBucal}}</span></p>
+</div>

@@ -12,7 +12,7 @@ export class PacienteService {
 
   private url = 'http://localhost:8080/pacientes';
   private http = inject(HttpClient);
-  private imagenService = inject (ImagenService);
+  private imagenService = inject(ImagenService);
 
   private state = signal({
     pacientes: new Map<number, Paciente>()
@@ -21,6 +21,7 @@ export class PacienteService {
   constructor() {
     this.getPacientes();
   }
+
   getListaPacientes() {
     return Array.from(this.state().pacientes.values());
   }
@@ -38,17 +39,9 @@ export class PacienteService {
   private getDb(): Observable<Paciente[]> {
     return this.http.get(this.url).pipe(map((response: any) => response._embedded.pacientes as Paciente[]),);
   }
-  
-  // crearPaciente(paciente: IPaciente) {
-  //   this.create(paciente).subscribe((p) => {
-  //     this.state.update((state) => {
-  //       state.pacientes.set(p.id, p);
-  //       return { pacientes: state.pacientes };
-  //     });
-  //   });
-  // }
+
   crearPaciente(paciente: IPaciente): Observable<number> {
-    return this.create(paciente).pipe(
+    return this.http.post<Paciente>(this.url, paciente).pipe(
       tap((p) => {
         this.state.update((state) => {
           state.pacientes.set(p.id, p);
@@ -57,10 +50,6 @@ export class PacienteService {
       }),
       map((p) => p.id) // devolvés el ID
     );
-  }
-
-  private create(paciente: IPaciente): Observable<Paciente> {
-    return this.http.post<Paciente>(this.url, paciente);
   }
 
   actualizarPaciente(paciente: Paciente) {
@@ -78,3 +67,11 @@ export class PacienteService {
   }
 
 }
+// crearPaciente(paciente: IPaciente) {
+//   this.create(paciente).subscribe((p) => {
+//     this.state.update((state) => {
+//       state.pacientes.set(p.id, p);
+//       return { pacientes: state.pacientes };
+//     });
+//   });
+// }

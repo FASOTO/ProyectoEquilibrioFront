@@ -8,6 +8,8 @@
     <button class="nav-link" type="button" [class.active]="activeTab === 'datosPersonales'" (click)="setActiveTab('datosPersonales')">Datos Personales</button>
     <button class="nav-link" type="button" [class.active]="activeTab === 'declaracionJurada'" (click)="setActiveTab('declaracionJurada')">Declaracion Jurada</button>
     <button class="nav-link" type="button" [class.active]="activeTab === 'odontograma'" (click)="setActiveTab('odontograma')">Odontograma</button>
+    <button class="nav-link" type="button" [class.active]="activeTab === 'fotos'" (click)="setActiveTab('fotos')">Fotos</button>
+    <button class="nav-link" type="button" [class.active]="activeTab === 'salud'" (click)="setActiveTab('salud')">Salud del paciente</button>
 </nav>
 <div class="tab-content">
      @if (activeTab === 'datosPersonales'){
@@ -18,5 +20,11 @@
      }
      @if (activeTab === 'odontograma'){
         <app-odontograma [(listaProcedimientos)]= "this.listaProcedimientos" [mostrarOpciones]="false"/>
+     }
+     @if (activeTab === 'fotos'){
+        <app-detalle-paciente-fotos [paciente]="this.paciente"/>
+     }
+     @if (activeTab === 'salud'){
+        <app-detalle-paciente-salud [paciente]="this.paciente"/>
      }
 </div>

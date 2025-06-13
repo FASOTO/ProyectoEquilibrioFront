@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Paciente } from '../../../models/paciente';
 
 @Component({
   selector: 'app-detalle-paciente-fotos',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './detalle-paciente-fotos.component.css'
 })
 export class DetallePacienteFotosComponent {
+paciente = input <Paciente>();
 
 }
